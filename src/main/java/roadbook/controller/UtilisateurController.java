@@ -1,6 +1,7 @@
 package roadbook.controller;
 
 import java.util.Collection;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,4 +20,10 @@ public class UtilisateurController {
 	public Collection<Utilisateur> findAll(){
 		return utilisateurRepository.findAll();
 	}
+	
+	@GetMapping("/utilisateur/{id}")
+	public Optional<Utilisateur> findById(Integer id) {
+		return utilisateurRepository.findById(id);
+	}
+	
 }
