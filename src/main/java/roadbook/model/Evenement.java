@@ -1,5 +1,6 @@
 package roadbook.model;
 
+import java.util.Collection;
 import java.util.Date;
 
 import javax.persistence.Entity;
@@ -29,7 +30,7 @@ public class Evenement {
 	
 	@ManyToOne
 	@JoinColumn(name = "utilisateur", referencedColumnName = "id")
-	private Utilisateur utilisateur;
+	private Utilisateur utilisateurs;
 	
 	@OneToOne
 	@JoinColumn(name = "roadbook", referencedColumnName = "id")
@@ -47,7 +48,7 @@ public class Evenement {
 		this.description = description;
 		this.region = region;
 		this.date = date;
-		this.utilisateur = utilisateur;
+		this.utilisateurs = utilisateur;
 		this.roadBook = roadBook;
 	}
 
@@ -100,11 +101,11 @@ public class Evenement {
 	}
 
 	public Utilisateur getUtilisateur() {
-		return utilisateur;
+		return utilisateurs;
 	}
 
 	public void setUtilisateur(Utilisateur utilisateur) {
-		this.utilisateur = utilisateur;
+		this.utilisateurs = utilisateur;
 	}
 
 	public RoadBook getRoadBook() {
