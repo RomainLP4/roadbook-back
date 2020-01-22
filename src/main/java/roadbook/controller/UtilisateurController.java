@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 import roadbook.model.Utilisateur;
 import roadbook.repository.UtilisateurRepository;
 
+
 @RestController
 public class UtilisateurController {
 	
@@ -31,6 +32,7 @@ public class UtilisateurController {
 	public Optional<Utilisateur> findByPseudo(@PathVariable String pseudo) {
 		return utilisateurRepository.findByPseudo(pseudo);
 	}
+	
 	
 	//@PostMapping("/")
 	

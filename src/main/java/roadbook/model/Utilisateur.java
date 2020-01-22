@@ -27,7 +27,6 @@ public class Utilisateur {
 	private String ville;
 	private String role; // ENUM ?
 	
-	
 	public Utilisateur(String pseudo, String email, String password, String nom, String prenom, String telephone,
 			String niveau, String ville, String role) {
 		super();
