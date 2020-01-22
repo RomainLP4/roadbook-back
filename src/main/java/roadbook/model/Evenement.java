@@ -30,7 +30,7 @@ public class Evenement {
 	
 	@ManyToOne
 	@JoinColumn(name = "utilisateur", referencedColumnName = "id")
-	private Utilisateur utilisateurs;
+	private Utilisateur utilisateur;
 	
 	@OneToOne
 	@JoinColumn(name = "roadbook", referencedColumnName = "id")
@@ -48,7 +48,7 @@ public class Evenement {
 		this.description = description;
 		this.region = region;
 		this.date = date;
-		this.utilisateurs = utilisateur;
+		this.utilisateur = utilisateur;
 		this.roadBook = roadBook;
 	}
 
@@ -101,11 +101,11 @@ public class Evenement {
 	}
 
 	public Utilisateur getUtilisateur() {
-		return utilisateurs;
+		return utilisateur;
 	}
 
 	public void setUtilisateur(Utilisateur utilisateur) {
-		this.utilisateurs = utilisateur;
+		this.utilisateur = utilisateur;
 	}
 
 	public RoadBook getRoadBook() {
