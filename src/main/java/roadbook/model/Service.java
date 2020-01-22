@@ -1,5 +1,8 @@
 package roadbook.model;
 
+import java.util.ArrayList;
+import java.util.Collection;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -8,10 +11,12 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Service {
 	public Service() {
-		
+		utilisateurs = new ArrayList<Utilisateur>();
 	}
 	public Service(String nom, String categorie, String description, Integer nbr_place, Integer note) {
 		this.nom = nom;
@@ -22,18 +27,19 @@ public class Service {
 	}
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Integer id;
+	private int id;
 	private String nom;
 	private String categorie;
 	private String description;
-	private Integer nbr_place;
-	private Integer note;
-//	@ManyToMany
-//	@JoinColumn(name = "utilisateur", referencedColumnName="id")
-//	private Utilisateur utilisateur;
-//	@ManyToOne
-//	@JoinColumn(name = "region", referencedColumnName = "id")
-//	private Region region;
+	private int nbr_place;
+	private int note;
+	@ManyToMany
+	@JsonIgnore
+	@JoinColumn(name = "utilisateur", referencedColumnName="id")
+	private Collection<Utilisateur> utilisateurs;
+	@ManyToOne
+	@JoinColumn(name = "region", referencedColumnName = "id")
+	private Region region;
 	
 	
 	public String getNom() {
@@ -66,25 +72,34 @@ public class Service {
 	public void setNote(Integer note) {
 		this.note = note;
 	}
-//	public Utilisateur getUtilisateur() {
-//		return utilisateur;
-//	}
-//	public void setUtilisateur(Utilisateur utilisateur) {
-//		this.utilisateur = utilisateur;
-//	}
-//	public Region getRegion() {
-//		return region;
-//	}
-//	public void setRegion(Region region) {
-//		this.region = region;
-//	}
-//	@Override
-//	public String toString() {
-//		return "Service [id=" + id + ", nom=" + nom + ", categorie=" + categorie + ", description=" + description
-//				+ ", nbr_place=" + nbr_place + ", note=" + note + ", utilisateur=" + utilisateur + ", region=" + region
-//				+ ", getNom()=" + getNom() + ", getCategorie()=" + getCategorie() + ", getDescription()="
-//				+ getDescription() + ", getNbr_place()=" + getNbr_place() + ", getNote()=" + getNote()
-//				+ ", getUtilisateur()=" + getUtilisateur() + ", getRegion()=" + getRegion() + ", getClass()="
-//				+ getClass() + ", hashCode()=" + hashCode() + ", toString()=" + super.toString() + "]";
-//	}
+	
+	public Region getRegion() {
+		return region;
+	}
+	public void setRegion(Region region) {
+		this.region = region;
+	}
+	
+	public int getId() {
+		return id;
+	}
+	public void setId(Integer id) {
+		this.id = id;
+	}
+	public Collection<Utilisateur> getUtilisateurs() {
+		return utilisateurs;
+	}
+	public void setUtilisateurs(Collection<Utilisateur> utilisateurs) {
+		this.utilisateurs = utilisateurs;
+	}
+	@Override
+	public String toString() {
+		return "Service [id=" + id + ", nom=" + nom + ", categorie=" + categorie + ", description=" + description
+				+ ", nbr_place=" + nbr_place + ", note=" + note + ", utilisateurs=" + utilisateurs + ", region="
+				+ region + ", getNom()=" + getNom() + ", getCategorie()=" + getCategorie() + ", getDescription()="
+				+ getDescription() + ", getNbr_place()=" + getNbr_place() + ", getNote()=" + getNote()
+				+ ", getRegion()=" + getRegion() + ", getId()=" + getId() + ", getUtilisateurs()=" + getUtilisateurs()
+				+ ", getClass()=" + getClass() + ", hashCode()=" + hashCode() + ", toString()=" + super.toString()
+				+ "]";
+	}
 }
