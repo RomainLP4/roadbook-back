@@ -13,8 +13,8 @@ INSERT INTO roadbookride.region (id, nom) VALUES (3, 'Ile de France');
 INSERT INTO roadbookride.article (id, titre, tag, description, texte, id_utilisateur, nb_vue, date_publication) VALUES (1, 'La moto pour les nulles', 'nulle', 'On vous explique la moto', 'alors une moto n''est pas un scooter !!!!c''est beaucoup mieux', 2, 2, '2020-01-21');
 INSERT INTO roadbookride.article (id, titre, tag, description, texte, id_utilisateur, nb_vue, date_publication) VALUES (2, 'Bien choisir son équipement', 'equipement', 'Les équipement moto', 'Pour bien choisir son équipement il faut bien connaitre son corps et surtout la taille qu''il vous faut !!', 1, 5, '2020-01-08');
 
-INSERT INTO roadbookride.service (id, nom, categorie, description, nbr_place, note, id_region) VALUES (1, 'au dodo', 'hotel', 'une chambre chez l''habitant', 5, 2, 1);
-INSERT INTO roadbookride.service (id, nom, categorie, description, nbr_place, note, id_region) VALUES (2, 'jojo la bricol', 'mecanique', 'je répare vos moto a domicile', 1, 5, 3);
+INSERT INTO roadbookride.service (id, nom, categorie, description, nbr_place, note, id_region, utilisateurs_id) VALUES (1, 'au dodo', 'hotel', 'une chambre chez l''habitant', 5, 2, 1, 1);
+INSERT INTO roadbookride.service (id, nom, categorie, description, nbr_place, note, id_region, utilisateurs_id) VALUES (2, 'jojo la bricol', 'mecanique', 'je répare vos moto a domicile', 1, 5, 3, 2);
 
 INSERT INTO roadbookride.roadbook (id, nom, id_region, description, kilometrage, difficulte, id_utilisateur) VALUES (2, 'la route du vin', 1, 'on va boire un coup', 200, 'facil', 2);
 INSERT INTO roadbookride.roadbook (id, nom, id_region, description, kilometrage, difficulte, id_utilisateur) VALUES (3, 'au louvre', 3, 'visite du louvre', 25, 'expert', 1);

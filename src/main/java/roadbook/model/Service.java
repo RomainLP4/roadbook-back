@@ -8,11 +8,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Service {
@@ -34,9 +31,9 @@ public class Service {
 	private String description;
 	private int nbr_place;
 	private int note;
-	@OneToMany
+	@OneToOne
 	//@JoinColumn(name = "id_utilisateur", referencedColumnName="id")
-	private Collection<Utilisateur> utilisateurs= new ArrayList<Utilisateur>();
+	private Utilisateur utilisateurs;
 	@ManyToOne
 	@JoinColumn(name = "id_region", referencedColumnName = "id")
 	private Region region;
@@ -86,11 +83,20 @@ public class Service {
 	public void setId(Integer id) {
 		this.id = id;
 	}
-	public Collection<Utilisateur> getUtilisateurs() {
+	public Utilisateur getUtilisateurs() {
 		return utilisateurs;
 	}
-	public void setUtilisateurs(Collection<Utilisateur> utilisateurs) {
+	public void setUtilisateurs(Utilisateur utilisateurs) {
 		this.utilisateurs = utilisateurs;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	public void setNbr_place(int nbr_place) {
+		this.nbr_place = nbr_place;
+	}
+	public void setNote(int note) {
+		this.note = note;
 	}
 	@Override
 	public String toString() {
@@ -102,4 +108,6 @@ public class Service {
 				+ ", getClass()=" + getClass() + ", hashCode()=" + hashCode() + ", toString()=" + super.toString()
 				+ "]";
 	}
+
+
 }
