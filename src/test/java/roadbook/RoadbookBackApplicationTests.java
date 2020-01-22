@@ -1,0 +1,13 @@
+package roadbook;
+
+import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
+
+@SpringBootTest
+class RoadbookBackApplicationTests {
+
+	@Test
+	void contextLoads() {
+	}
+
+}
