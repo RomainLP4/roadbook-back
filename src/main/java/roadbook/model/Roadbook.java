@@ -15,15 +15,15 @@ public class Roadbook {
 	private int id;
 	private String nom;
 	private String description;
-	private int kilometre;
+	private int kilometrage;
 	private String difficulte;
 	
 	@ManyToOne
-	@JoinColumn(name = "region", referencedColumnName="id")
+	@JoinColumn(name = "id_region", referencedColumnName="id")
 	private Region region;
 	
 	@ManyToOne
-	@JoinColumn(name = "utilisateur", referencedColumnName="id")
+	@JoinColumn(name = "id_utilisateur", referencedColumnName="id")
 	private Utilisateur auteur;
 	
 	

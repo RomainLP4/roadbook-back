@@ -22,7 +22,7 @@ public class Article {
 	private Date date_publication;
 	
 	@OneToOne
-	@JoinColumn(name = "utilisateur", referencedColumnName = "id")
+	@JoinColumn(name = "id_utilisateur", referencedColumnName = "id")
 	private Utilisateur auteur;
 
 	public int getId() {

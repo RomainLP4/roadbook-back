@@ -23,17 +23,17 @@ public class Evenement {
 	private String description;
 	
 	@ManyToOne
-	@JoinColumn(name = "region", referencedColumnName = "id")
+	@JoinColumn(name = "id_region", referencedColumnName = "id")
 	private Region region;
 	
 	private Date date;
 	
 	@ManyToOne
-	@JoinColumn(name = "utilisateur", referencedColumnName = "id")
+	@JoinColumn(name = "id_utilisateur", referencedColumnName = "id")
 	private Utilisateur utilisateur;
 	
 	@OneToOne
-	@JoinColumn(name = "roadbook", referencedColumnName = "id")
+	@JoinColumn(name = "id_roadbook", referencedColumnName = "id")
 	private Roadbook roadBook;
 
 	public Evenement() {

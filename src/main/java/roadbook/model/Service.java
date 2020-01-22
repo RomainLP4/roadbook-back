@@ -10,13 +10,14 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 public class Service {
 	public Service() {
-		utilisateurs = new ArrayList<Utilisateur>();
+		//utilisateurs = new ArrayList<Utilisateur>();
 	}
 	public Service(String nom, String categorie, String description, Integer nbr_place, Integer note) {
 		this.nom = nom;
@@ -33,12 +34,11 @@ public class Service {
 	private String description;
 	private int nbr_place;
 	private int note;
-	@ManyToMany
-	@JsonIgnore
-	@JoinColumn(name = "utilisateur", referencedColumnName="id")
-	private Collection<Utilisateur> utilisateurs;
+	@OneToMany
+	//@JoinColumn(name = "id_utilisateur", referencedColumnName="id")
+	private Collection<Utilisateur> utilisateurs= new ArrayList<Utilisateur>();
 	@ManyToOne
-	@JoinColumn(name = "region", referencedColumnName = "id")
+	@JoinColumn(name = "id_region", referencedColumnName = "id")
 	private Region region;
 	
 	
