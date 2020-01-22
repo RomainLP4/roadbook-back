@@ -17,7 +17,7 @@ import lombok.Setter;
 @NoArgsConstructor
 public class Region {
 
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Id
 	private int id;
 	private String nom;
