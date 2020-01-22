@@ -28,12 +28,12 @@ public class Service {
 	private String description;
 	private Integer nbr_place;
 	private Integer note;
-	@ManyToMany
-	@JoinColumn(name = "utilisateur", referencedColumnName="id")
-	private Utilisateur utilisateur;
-	@ManyToOne
-	@JoinColumn(name = "region", referencedColumnName = "id")
-	private Region region;
+//	@ManyToMany
+//	@JoinColumn(name = "utilisateur", referencedColumnName="id")
+//	private Utilisateur utilisateur;
+//	@ManyToOne
+//	@JoinColumn(name = "region", referencedColumnName = "id")
+//	private Region region;
 	
 	
 	public String getNom() {
@@ -66,25 +66,25 @@ public class Service {
 	public void setNote(Integer note) {
 		this.note = note;
 	}
-	public Utilisateur getUtilisateur() {
-		return utilisateur;
-	}
-	public void setUtilisateur(Utilisateur utilisateur) {
-		this.utilisateur = utilisateur;
-	}
-	public Region getRegion() {
-		return region;
-	}
-	public void setRegion(Region region) {
-		this.region = region;
-	}
-	@Override
-	public String toString() {
-		return "Service [id=" + id + ", nom=" + nom + ", categorie=" + categorie + ", description=" + description
-				+ ", nbr_place=" + nbr_place + ", note=" + note + ", utilisateur=" + utilisateur + ", region=" + region
-				+ ", getNom()=" + getNom() + ", getCategorie()=" + getCategorie() + ", getDescription()="
-				+ getDescription() + ", getNbr_place()=" + getNbr_place() + ", getNote()=" + getNote()
-				+ ", getUtilisateur()=" + getUtilisateur() + ", getRegion()=" + getRegion() + ", getClass()="
-				+ getClass() + ", hashCode()=" + hashCode() + ", toString()=" + super.toString() + "]";
-	}
+//	public Utilisateur getUtilisateur() {
+//		return utilisateur;
+//	}
+//	public void setUtilisateur(Utilisateur utilisateur) {
+//		this.utilisateur = utilisateur;
+//	}
+//	public Region getRegion() {
+//		return region;
+//	}
+//	public void setRegion(Region region) {
+//		this.region = region;
+//	}
+//	@Override
+//	public String toString() {
+//		return "Service [id=" + id + ", nom=" + nom + ", categorie=" + categorie + ", description=" + description
+//				+ ", nbr_place=" + nbr_place + ", note=" + note + ", utilisateur=" + utilisateur + ", region=" + region
+//				+ ", getNom()=" + getNom() + ", getCategorie()=" + getCategorie() + ", getDescription()="
+//				+ getDescription() + ", getNbr_place()=" + getNbr_place() + ", getNote()=" + getNote()
+//				+ ", getUtilisateur()=" + getUtilisateur() + ", getRegion()=" + getRegion() + ", getClass()="
+//				+ getClass() + ", hashCode()=" + hashCode() + ", toString()=" + super.toString() + "]";
+//	}
 }
