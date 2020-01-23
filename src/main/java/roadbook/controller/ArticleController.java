@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import roadbook.model.Article;
-import roadbook.model.Utilisateur;
 import roadbook.repository.ArticleRepository;
 
 @RestController
@@ -30,7 +29,16 @@ public class ArticleController {
 	}
 
 
-	  
+	@RequestMapping("/delArticle/{id}")
+    public void delOne(@PathVariable int id) {
+        Optional<Article> optArticle = articleRepository.findById(id);
+        if (optArticle.isPresent()) {
+            articleRepository.deleteById(id);
+            System.out.println("Article supprimé");
+        } else {
+            System.out.println("Pas d'article avec cet ID");
+        }
+    }
 
 
 
