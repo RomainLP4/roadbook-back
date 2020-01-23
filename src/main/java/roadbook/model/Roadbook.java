@@ -1,5 +1,6 @@
 package roadbook.model;
 
+import java.util.Collection;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -10,6 +11,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 public class Roadbook {
@@ -23,6 +26,8 @@ public class Roadbook {
 	private String difficulte;
 	private int likes;
 	
+
+	
 	@ManyToOne
 	@JoinColumn(name = "id_region", referencedColumnName="id")
 	private Region region;
@@ -31,12 +36,20 @@ public class Roadbook {
 	@JoinColumn(name = "id_utilisateur", referencedColumnName="id")
 	private Utilisateur auteur;
 	
-	@OneToMany
-	@JoinColumn (name = "List_pointconstrucion", referencedColumnName="id")
-	private List <Pointconstruction> List_pointconstruction;
+	
+	@OneToMany(mappedBy="roadbook",orphanRemoval = true)
+	@JsonIgnore
+	private List <Pointconstruction> ListPointConstruction;
+	
+
 	
 	
-	
+	public List<Pointconstruction> getListPointConstruction() {
+		return ListPointConstruction;
+	}
+	public void setListPointConstruction(List<Pointconstruction> listPointConstruction) {
+		ListPointConstruction = listPointConstruction;
+	}
 	public int getId() {
 		return id;
 	}

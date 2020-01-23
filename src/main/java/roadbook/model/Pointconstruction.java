@@ -7,6 +7,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Pointconstruction {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -17,9 +19,11 @@ public class Pointconstruction {
 	private float longitude;
 	private boolean is_etape;
 	private String type_etape;
+	
 	@ManyToOne
+	@JsonIgnore
 	@JoinColumn (name = "id_roadbook", referencedColumnName = "id")
-	private Roadbook id_roadbook;
+	private Roadbook roadbook;
 	
 	public int getOrdre_etape() {
 		return ordre_etape;
@@ -79,12 +83,12 @@ public class Pointconstruction {
 		this.is_etape = is_etape;
 	}
 
-	public Roadbook getId_roadbook() {
-		return id_roadbook;
+	public Roadbook getRoadbook() {
+		return roadbook;
 	}
 
-	public void setId_roadbook(Roadbook id_roadbook) {
-		this.id_roadbook = id_roadbook;
+	public void setRoadbook(Roadbook id_roadbook) {
+		this.roadbook = id_roadbook;
 	}
 	
 	
