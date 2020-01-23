@@ -16,7 +16,6 @@ public class Utilisateur {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Id
 	private int id;
-	
 	private String pseudo;
 	private String email;
 	private String password;
@@ -29,9 +28,12 @@ public class Utilisateur {
 	
 	
 	@OneToMany (mappedBy="proprietaire", orphanRemoval=true)
-	@JsonIgnore
 	private List<Moto> listeMotos;
 
+	
+	
+	
+	
 	public Utilisateur(String pseudo, String email, String password, String nom, String prenom, String telephone,
 			String niveau, String ville, String role) {
 		super();
@@ -91,13 +93,16 @@ public class Utilisateur {
 		this.password = password;
 	}
 
+
 	public String getNom() {
 		return nom;
 	}
 
+
 	public void setNom(String nom) {
 		this.nom = nom;
 	}
+
 
 	public String getPrenom() {
 		return prenom;

@@ -19,11 +19,16 @@ public class Moto {
 	private String modele;
 	private String annee;
 	
+	
 	@ManyToOne
 	@JsonIgnore
 	@JoinColumn (name = "proprietaire", referencedColumnName = "id")
 	private Utilisateur proprietaire;
 
+	
+	
+	
+	
 	public int getId() {
 		return id;
 	}
@@ -64,12 +69,12 @@ public class Moto {
 		this.annee = annee;
 	}
 
-	public Utilisateur getId_proprietaire() {
+	public Utilisateur getProprietaire() {
 		return proprietaire;
 	}
 
-	public void setId_proprietaire(Utilisateur id_proprietaire) {
-		this.proprietaire = id_proprietaire;
+	public void setProprietaire(Utilisateur proprietaire) {
+		this.proprietaire = proprietaire;
 	}
 	
 	

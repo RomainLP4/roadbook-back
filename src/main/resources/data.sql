@@ -2,9 +2,9 @@ INSERT INTO roadbookride.utilisateur (id, pseudo, email, password, nom, prenom, 
 INSERT INTO roadbookride.utilisateur (id, pseudo, email, password, nom, prenom, telephone, niveau, ville, role) VALUES (2, 'RobTheBear', 'robert@gmail.com', 'Robear', 'Roussely', 'Robert', '0606056006', 'Expert', 'Monaco', 'Moderateur');
 INSERT INTO roadbookride.utilisateur (id, pseudo, email, password, nom, prenom, telephone, niveau, ville, role) VALUES (3, 'Sof', 'sophie.balcon@gmail.com', 'fzr', 'Balcon', 'Sophie', '0620458598', 'Confirmé', 'Saint-Nazaire', 'User');
 
-INSERT INTO roadbookride.moto (id, categorie, marque, modele, annee, id_proprietaire) VALUES (1, 'Roadster', 'KTM', '790 Duke', 2018, 1);
-INSERT INTO roadbookride.moto (id, categorie, marque, modele, annee, id_proprietaire) VALUES (2, 'Trail', 'KTM', '1290 Super Adventure', 2015, 2);
-INSERT INTO roadbookride.moto (id, categorie, marque, modele, annee, id_proprietaire) VALUES (3, 'Sportive', 'Yamaha', '1000 FZR', 1989, 3);
+INSERT INTO roadbookride.moto (id, categorie, marque, modele, annee, proprietaire) VALUES (1, 'Roadster', 'KTM', '790 Duke', 2018, 1);
+INSERT INTO roadbookride.moto (id, categorie, marque, modele, annee, proprietaire) VALUES (2, 'Trail', 'KTM', '1290 Super Adventure', 2015, 2);
+INSERT INTO roadbookride.moto (id, categorie, marque, modele, annee, proprietaire) VALUES (3, 'Sportive', 'Yamaha', '1000 FZR', 1989, 3);
 
 INSERT INTO roadbookride.region (id, nom) VALUES (1, 'Occitanie');
 INSERT INTO roadbookride.region (id, nom) VALUES (2, 'Pays de la loire');
