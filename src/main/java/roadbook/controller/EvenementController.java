@@ -59,8 +59,9 @@ public class EvenementController {
 	}
 	
 	
+	
 	/**
-	 * Ajoute un evenement
+	 * Ajoute un évènement
 	 */
 	@PostMapping("/addEvenement")
 	public Evenement ajoutEvenement(@RequestBody Evenement evenement){
