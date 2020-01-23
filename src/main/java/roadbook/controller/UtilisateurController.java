@@ -43,16 +43,15 @@ public class UtilisateurController {
 	*/
 	
 	@PostMapping("/utilisateurUpdateProfile")
+	// public ResponseEntity<Utilisateur> utilisateurUpdateProfile(@RequestBody Utilisateur utilisateur) {
 	public Utilisateur utilisateurUpdateProfile(@RequestBody Utilisateur utilisateur) {
-
 		
 		Optional<Utilisateur> utilisateurEnBase = utilisateurRepository.findById(utilisateur.getId());
 		
 		
 		
 		if(utilisateurEnBase.isPresent()) {
-		System.out.println(" on est entré dans le if statement, un save devrait avoir lieu");
-			
+		
 			// Si l'utilisateur ne renseigne pas certains champs, on leur donne par défaut leur valeur actuelle plutôt que de les écraser avec un null
 		
 			if(utilisateur.getPseudo() == null) {								// idéalement on voudrait utiliser un Optional plutôt qu'un test de null
@@ -83,7 +82,7 @@ public class UtilisateurController {
 			// No if statement here because the update profile endpoint shouldn't allow modifying its admin rights.
 			utilisateur.setRole(utilisateurEnBase.get().getRole());
 		
-			
+			// return new ResponseEntity<>(utilisateurRepository.saveAndFlush(utilisateur), HttpStatus.OK); // We'll test with 
 			return utilisateurRepository.saveAndFlush(utilisateur);
 	
 		} else {
