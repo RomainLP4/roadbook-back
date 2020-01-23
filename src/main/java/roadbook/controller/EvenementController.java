@@ -51,11 +51,27 @@ public class EvenementController {
 	}
 	
 	/**
+	 * Recherche par nom si plusieurs fois le même nom
+	 */
+	@GetMapping("/evenementByNoms/{nom}")
+	public Collection<Evenement> findAllByNom(@PathVariable String nom) {
+		return evenementRepository.findAllByNom(nom);
+	}
+	
+	/**
 	 * Recherche par type d'événement
 	 */
 	@GetMapping("/evenementByType/{type}")
 	public Optional<Evenement> findByType(@PathVariable String type) {
 		return evenementRepository.findByType(type);
+	}
+	
+	/**
+	 * Recherche par type d'événement si plusieurs
+	 */
+	@GetMapping("/evenementByTypes/{type}")
+	public Collection<Evenement> findAllByType(@PathVariable String type) {
+		return evenementRepository.findAllByType(type);
 	}
 	
 	
