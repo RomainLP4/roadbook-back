@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import roadbook.model.Evenement;
 import roadbook.model.Service;
 import roadbook.repository.ServiceRepository;
 
@@ -51,4 +52,25 @@ public class ServiceController {
 	            System.out.println("Pas d'action à supprimer");
 	        }
 	    }
+		@PostMapping("/updateService")
+		public Service updateService(@RequestBody Service service){
+			System.out.println(service);
+			return serviceRepository.saveAndFlush(service);
+		}
+//		 @GetMapping(path = "/updateService/{id}/{categorie}/{description}/{nbr_place}/{nom}/{note}")
+//		    public Service updateService(@PathVariable int id, @PathVariable String categorie, @PathVariable String description, @PathVariable int nbr_place, @PathVariable String nom, @PathVariable int note) {
+//		        Optional<Service> optService = serviceRepository.findById(id);
+//		        Service updateService = serviceRepository.findById(id).get();
+//		        if (optService.isPresent()) {
+//		            updateService.setCategorie(categorie);
+//		            updateService.setDescription(description);
+//		            updateService.setNbr_place(nbr_place);
+//		            updateService.setNom(nom);
+//		            updateService.setNote(note);
+//		            return serviceRepository.save(updateService);
+//		        } else {
+//		            return updateService;
+//		        }
+//		    }
+
 }

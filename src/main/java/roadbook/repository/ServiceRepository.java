@@ -14,4 +14,6 @@ public interface ServiceRepository extends JpaRepository<Service, Integer> {
 	public Collection<Service> findAllByCategorie(String categorie);
 
 	
+
+	
 }
