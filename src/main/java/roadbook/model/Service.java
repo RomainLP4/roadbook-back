@@ -1,5 +1,6 @@
 package roadbook.model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
 
@@ -12,7 +13,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 
 @Entity
-public class Service {
+public class Service implements Serializable {
 	public Service() {
 		//utilisateurs = new ArrayList<Utilisateur>();
 	}

@@ -1,5 +1,6 @@
 package roadbook.repository;
 
+import java.util.Collection;
 import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -9,4 +10,6 @@ import roadbook.model.Service;
 @Repository
 public interface ServiceRepository extends JpaRepository<Service, Integer> {
 	public Optional<Service> findByCategorie(String categorie);
+
+	public Collection<Service> findAllByCategorie(String categorie);
 }
