@@ -34,14 +34,14 @@ public class Evenement {
 	
 	@OneToOne
 	@JoinColumn(name = "id_roadbook", referencedColumnName = "id")
-	private Roadbook roadBook;
+	private Roadbook roadbook;
 
 	public Evenement() {
 	
 	}
 
 	public Evenement(String nom, String type, String description, Region region, Date date, Utilisateur utilisateur,
-			Roadbook roadBook) {
+			Roadbook roadbook) {
 		super();
 		this.nom = nom;
 		this.type = type;
@@ -49,7 +49,7 @@ public class Evenement {
 		this.region = region;
 		this.date = date;
 		this.utilisateur = utilisateur;
-		this.roadBook = roadBook;
+		this.roadbook = roadbook;
 	}
 
 	public int getId() {
@@ -108,12 +108,12 @@ public class Evenement {
 		this.utilisateur = utilisateur;
 	}
 
-	public Roadbook getRoadBook() {
-		return roadBook;
+	public Roadbook getRoadbook() {
+		return roadbook;
 	}
 
-	public void setRoadBook(Roadbook roadBook) {
-		this.roadBook = roadBook;
+	public void setRoadbook(Roadbook roadbook) {
+		this.roadbook = roadbook;
 	}
 	
 	
