@@ -55,9 +55,13 @@ public class EvenementController {
 		return evenementRepository.saveAndFlush(evenement);
 	}
 	
-	//mettre a jour
-//	public Evenement updateEvenement(Evenement evenement){
-//		return evenementRepository.saveAndFlush(evenement);
-//	}
+	/**
+	 * mettre a jour
+	 */
+	@PostMapping("/updateEvenement")
+	public Evenement updateEvenement(@RequestBody Evenement evenement){
+		System.out.println(evenement);
+		return evenementRepository.saveAndFlush(evenement);
+	}
 
 }
