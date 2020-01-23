@@ -1,5 +1,8 @@
 package roadbook.model;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -24,9 +27,16 @@ public class Roadbook {
 	@JoinColumn(name = "id_region", referencedColumnName="id")
 	private Region region;
 	
-	@ManyToOne
+	@ManyToOne 
 	@JoinColumn(name = "id_utilisateur", referencedColumnName="id")
 	private Utilisateur auteur;
+	
+	@OneToMany
+	@JoinColumn (name = "List_pointconstrucion", referencedColumnName="id")
+	private List <Pointconstruction> List_pointconstruction;
+	
+	
+	
 	public int getId() {
 		return id;
 	}

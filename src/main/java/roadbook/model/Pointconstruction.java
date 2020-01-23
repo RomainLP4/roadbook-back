@@ -5,7 +5,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Pointconstruction {
@@ -17,6 +17,9 @@ public class Pointconstruction {
 	private float longitude;
 	private boolean is_etape;
 	private String type_etape;
+	@ManyToOne
+	@JoinColumn (name = "id_roadbook", referencedColumnName = "id")
+	private Roadbook id_roadbook;
 	
 	public int getOrdre_etape() {
 		return ordre_etape;
@@ -34,9 +37,6 @@ public class Pointconstruction {
 		this.type_etape = type_etape;
 	}
 
-	@OneToOne
-	@JoinColumn (name = "id_roadbook", referencedColumnName = "id")
-	private Roadbook id_roadbook;
 
 	
 	public int getId() {
