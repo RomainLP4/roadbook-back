@@ -16,8 +16,8 @@ INSERT INTO roadbookride.article (id, titre, tag, description, texte, id_utilisa
 INSERT INTO roadbookride.service (id, nom, categorie, description, nbr_place, note, id_region, utilisateurs_id) VALUES (1, 'au dodo', 'hotel', 'une chambre chez l''habitant', 5, 2, 1, 1);
 INSERT INTO roadbookride.service (id, nom, categorie, description, nbr_place, note, id_region, utilisateurs_id) VALUES (2, 'jojo la bricol', 'mecanique', 'je répare vos moto a domicile', 1, 5, 3, 2);
 
-INSERT INTO roadbookride.roadbook (id, nom, id_region, description, kilometrage, difficulte, id_utilisateur) VALUES (2, 'la route du vin', 1, 'on va boire un coup', 200, 'facil', 2);
-INSERT INTO roadbookride.roadbook (id, nom, id_region, description, kilometrage, difficulte, id_utilisateur) VALUES (3, 'au louvre', 3, 'visite du louvre', 25, 'expert', 1);
+INSERT INTO roadbookride.roadbook (id, nom, id_region, description, kilometrage, difficulte, id_utilisateur,likes) VALUES (2, 'la route du vin', 1, 'on va boire un coup', 200, 'facil', 2, 5);
+INSERT INTO roadbookride.roadbook (id, nom, id_region, description, kilometrage, difficulte, id_utilisateur,likes) VALUES (3, 'au louvre', 3, 'visite du louvre', 25, 'expert', 1, 9);
 
 INSERT INTO roadbookride.pointconstruction (id, ordre_etape, latitude, longitude, is_etape, type_etape, id_roadbook) VALUES (4, 1, 0, 1, 1, 'depart', 2);
 INSERT INTO roadbookride.pointconstruction (id, ordre_etape, latitude, longitude, is_etape, type_etape, id_roadbook) VALUES (5, 2, 0, 0, 1, 'point de passage', 2);
@@ -25,6 +25,3 @@ INSERT INTO roadbookride.pointconstruction (id, ordre_etape, latitude, longitude
 INSERT INTO roadbookride.evenement (id, nom, type, description, id_region, date, id_utilisateur, id_roadbook) VALUES (1, 'Les vieilles moto', 'Concentration', 'RDV le 12/12/12 a Montreuil', 3, '1970-01-08', 2, null);
 INSERT INTO roadbookride.evenement (id, nom, type, description, id_region, date, id_utilisateur, id_roadbook) VALUES (2, 'Enchère sur Paris', 'Vente', 'RDV a la salle des ventes', 1, '2023-01-19', 1, null);
 
---INSERT INTO roadbookride.`like` (id_utilisateur, id_roadbook, id_evenement) VALUES (1, 2, 2);
---INSERT INTO roadbookride.`like` (id_utilisateur, id_roadbook, id_evenement) VALUES (2, 3, null);
---INSERT INTO roadbookride.`like` (id_utilisateur, id_roadbook, id_evenement) VALUES (1, null, 2);
