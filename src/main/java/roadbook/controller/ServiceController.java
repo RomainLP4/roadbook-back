@@ -37,7 +37,18 @@ public class ServiceController {
 	
 	 
 	    @PostMapping("/addService")
-	    public Service ajoutEvenement(@RequestBody Service service){
+	    public Service ajoutService(@RequestBody Service service){
 	        return serviceRepository.saveAndFlush(service);
+	    }
+	    
+	    @RequestMapping("/delService/{id}")
+	    public void delOne(@PathVariable int id) {
+	        Optional<Service> optEvent = serviceRepository.findById(id);
+	        if (optEvent.isPresent()) {
+	        	serviceRepository.deleteById(id);
+	            System.out.println("Action supprimée");
+	        } else {
+	            System.out.println("Pas d'action à supprimer");
+	        }
 	    }
 }
