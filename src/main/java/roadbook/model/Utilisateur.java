@@ -1,9 +1,14 @@
 package roadbook.model;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 public class Utilisateur {
@@ -22,6 +27,11 @@ public class Utilisateur {
 	private String ville;
 	private String role; // ENUM ?
 	
+	
+	@OneToMany (mappedBy="proprietaire", orphanRemoval=true)
+	@JsonIgnore
+	private List<Moto> listeMotos;
+
 	public Utilisateur(String pseudo, String email, String password, String nom, String prenom, String telephone,
 			String niveau, String ville, String role) {
 		super();
@@ -106,39 +116,41 @@ public class Utilisateur {
 		return telephone;
 	}
 
-
 	public void setTelephone(String telephone) {
 		this.telephone = telephone;
 	}
-
 
 	public String getNiveau() {
 		return niveau;
 	}
 
-
 	public void setNiveau(String niveau) {
 		this.niveau = niveau;
 	}
-
 
 	public String getVille() {
 		return ville;
 	}
 
-
 	public void setVille(String ville) {
 		this.ville = ville;
 	}
-
 
 	public String getRole() {
 		return role;
 	}
 
-
 	public void setRole(String role) {
 		this.role = role;
+	}
+	
+	public List<Moto> getListeMotos() {
+		return listeMotos;
+	}
+
+
+	public void setListeMotos(List<Moto> listeMotos) {
+		this.listeMotos = listeMotos;
 	}
 
 

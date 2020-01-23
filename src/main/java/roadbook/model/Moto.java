@@ -7,6 +7,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Moto {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,8 +20,9 @@ public class Moto {
 	private String annee;
 	
 	@ManyToOne
-	@JoinColumn (name = "id_proprietaire", referencedColumnName = "id")
-	private Utilisateur id_proprietaire;
+	@JsonIgnore
+	@JoinColumn (name = "proprietaire", referencedColumnName = "id")
+	private Utilisateur proprietaire;
 
 	public int getId() {
 		return id;
@@ -62,11 +65,11 @@ public class Moto {
 	}
 
 	public Utilisateur getId_proprietaire() {
-		return id_proprietaire;
+		return proprietaire;
 	}
 
 	public void setId_proprietaire(Utilisateur id_proprietaire) {
-		this.id_proprietaire = id_proprietaire;
+		this.proprietaire = id_proprietaire;
 	}
 	
 	

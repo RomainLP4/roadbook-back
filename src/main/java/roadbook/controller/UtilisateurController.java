@@ -14,8 +14,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import roadbook.model.Utilisateur;
+import roadbook.model.enums.Role;
 import roadbook.repository.UtilisateurRepository;
-
 
 @RestController
 public class UtilisateurController {
@@ -38,12 +38,19 @@ public class UtilisateurController {
 		return utilisateurRepository.findByPseudo(pseudo);
 	}
 	
-	/*
-	@PostMapping("/utilisateurUpdateProfile")
-	public Utilisateur saveOrUpdateUtilisateur(@RequestBody Utilisateur utilisateur) {
-		return saveOrUpdateUtilisateur(utilisateur);
+	
+	@PostMapping("/utilisateurSave")
+	public ResponseEntity<Utilisateur> saveUtilisateur(@RequestBody Utilisateur utilisateur) {
+		
+		if(utilisateur.getPseudo().isEmpty() || utilisateur.getEmail().isEmpty() || utilisateur.getPassword().isEmpty()) {
+			return new ResponseEntity<>(utilisateur, HttpStatus.BAD_REQUEST);
+		} else {
+			//utilisateur.setRole(Role.Utilisateur);
+			utilisateur.setRole("Utilisateur");
+			return new ResponseEntity<>(utilisateurRepository.save(utilisateur), HttpStatus.CREATED);
+		}
 	}
-	*/
+	
 	
 	@PostMapping("/utilisateurUpdateProfile")
 	public ResponseEntity<Utilisateur> utilisateurUpdateProfile(@RequestBody Utilisateur utilisateur) {
@@ -53,34 +60,34 @@ public class UtilisateurController {
 		
 		
 		if(utilisateurEnBase.isPresent()) {
+			Utilisateur utilisateurPresentEnBase = utilisateurEnBase.get();
 		
-			// Si l'utilisateur ne renseigne pas certains champs, on leur donne par d�faut leur valeur actuelle plut�t que de les �craser avec un null
+			// Si l'utilisateur ne renseigne pas certains champs, on leur donne par defaut leur valeur actuelle plutot que de les ecraser avec un null
 		
-			if(utilisateur.getPseudo() == null) {								// id�alement on voudrait utiliser un Optional plut�t qu'un test de null
-				utilisateur.setPseudo(utilisateurEnBase.get().getPseudo());		// mais cela supposerait de red�finir la m�thode getPassword de notre 
-			}																	// Entity comme un Optional. Hors cela apparait incoh�rent avec notre
-			if(utilisateur.getEmail() == null) {								// BDD dans laquelle password est NOT NULL.
-				utilisateur.setEmail(utilisateurEnBase.get().getEmail());		// Une solution est d'ajouter des data transfer object qui eux disposeraient
-			}																	// d'une methode Optional<String> getPassword.
-			if(utilisateur.getPassword() == null) {
-				utilisateur.setPassword(utilisateurEnBase.get().getPassword());
+			if(utilisateur.getPseudo().isEmpty()) {								
+				utilisateur.setPseudo(utilisateurPresentEnBase.getPseudo());		
+			}																	
+			if(utilisateur.getEmail().isEmpty()) {								
+				utilisateur.setEmail(utilisateurPresentEnBase.getEmail());		
+			}																	
+			if(utilisateur.getPassword().isEmpty()) {
+				utilisateur.setPassword(utilisateurPresentEnBase.getPassword());
 			}
-			if(utilisateur.getNom() == null) {
-				utilisateur.setNom(utilisateurEnBase.get().getNom());
+			if(utilisateur.getNom().isEmpty()) {
+				utilisateur.setNom(utilisateurPresentEnBase.getNom());
 			}
-			if(utilisateur.getPrenom() == null) {
-				utilisateur.setPrenom(utilisateurEnBase.get().getPrenom());
+			if(utilisateur.getPrenom().isEmpty()) {
+				utilisateur.setPrenom(utilisateurPresentEnBase.getPrenom());
 			}
-			if(utilisateur.getTelephone() == null) {
-				utilisateur.setTelephone(utilisateurEnBase.get().getTelephone());
+			if(utilisateur.getTelephone().isEmpty()) {
+				utilisateur.setTelephone(utilisateurPresentEnBase.getTelephone());
 			}
-			if(utilisateur.getNiveau() == null) {
-				utilisateur.setNiveau(utilisateurEnBase.get().getNiveau());
+			if(utilisateur.getNiveau().isEmpty()) {
+				utilisateur.setNiveau(utilisateurPresentEnBase.getNiveau());
 			}
-			if(utilisateur.getVille() == null) {
-				utilisateur.setVille(utilisateurEnBase.get().getVille());
+			if(utilisateur.getVille().isEmpty()) {
+				utilisateur.setVille(utilisateurPresentEnBase.getVille());
 			}
-			
 			// No if statement here because the update profile endpoint shouldn't allow modifying its admin rights.
 			utilisateur.setRole(utilisateurEnBase.get().getRole());
 		
@@ -89,8 +96,8 @@ public class UtilisateurController {
 		} else {
 			return new ResponseEntity<>(utilisateur, HttpStatus.NOT_FOUND);
 		}
-
 	}
+	
 	@RequestMapping("/delUser/{id}")
     public void delOne(@PathVariable int id) {
         Optional<Utilisateur> optUser = utilisateurRepository.findById(id);
