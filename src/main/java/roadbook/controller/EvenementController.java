@@ -41,11 +41,11 @@ public class EvenementController {
             System.out.println("Pas d'évènement avec cet ID");
         }
     }
-//	@GetMapping("/evenementByNom/{nom}")
-//	public Optional<Evenement> findByNom(@PathVariable String nom) {
-//		return evenementRepository.findByNom(nom);
-//	}
-//	
+	@GetMapping("/evenementByNom/{nom}")
+	public Optional<Evenement> findByNom(@PathVariable String nom) {
+		return evenementRepository.findByNom(nom);
+	}
+	
 	
 	/**
 	 * Ajoute un evenement

@@ -12,6 +12,6 @@ import roadbook.model.Utilisateur;
 
 public interface EvenementRepository extends JpaRepository<Evenement, Integer> {
 
-//	public Optional<Evenement> findByNom(String nom);
+	public Optional<Evenement> findByNom(String nom);
 	
 }
