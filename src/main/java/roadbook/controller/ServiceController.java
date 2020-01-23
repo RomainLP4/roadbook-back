@@ -91,13 +91,13 @@ public class ServiceController {
 				if(service.getDescription() == null) {								// BDD dans laquelle password est NOT NULL.
 					service.setDescription(serviceEnBase.get().getDescription());		// Une solution est d'ajouter des data transfer object qui eux disposeraient
 				}																	// d'une methode Optional<String> getPassword.
-				if(service.getNbr_place() == null) {
+				if(service.getNbr_place() == 0) {
 					service.setNbr_place(serviceEnBase.get().getNbr_place());
 				}
 				if(service.getNom() == null) {
 					service.setNom(serviceEnBase.get().getNom());
 				}
-				if(service.getNote() == null) {
+				if(service.getNote() == 0) {
 					service.setNote(serviceEnBase.get().getNote());
 				}
 				if(service.getRegion() == null) {
