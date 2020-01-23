@@ -31,8 +31,8 @@ public class ServiceController {
 	
 	
 	@GetMapping("/servicesByCategorie/{categorie}")
-	public Optional<Service> findByCategorie(@PathVariable String categorie) {
-		return serviceRepository.findByCategorie(categorie);
+	public Collection<Service> findByCategorie(@PathVariable String categorie) {
+		return serviceRepository.findAllByCategorie(categorie);
 	}
 	
 	 
