@@ -18,6 +18,7 @@ public class Roadbook {
 	private String description;
 	private int kilometrage;
 	private String difficulte;
+	private int likes;
 	
 	@ManyToOne
 	@JoinColumn(name = "id_region", referencedColumnName="id")
@@ -26,9 +27,54 @@ public class Roadbook {
 	@ManyToOne
 	@JoinColumn(name = "id_utilisateur", referencedColumnName="id")
 	private Utilisateur auteur;
-	
-
-	private int likes;
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	public String getNom() {
+		return nom;
+	}
+	public void setNom(String nom) {
+		this.nom = nom;
+	}
+	public String getDescription() {
+		return description;
+	}
+	public void setDescription(String description) {
+		this.description = description;
+	}
+	public int getKilometrage() {
+		return kilometrage;
+	}
+	public void setKilometrage(int kilometrage) {
+		this.kilometrage = kilometrage;
+	}
+	public String getDifficulte() {
+		return difficulte;
+	}
+	public void setDifficulte(String difficulte) {
+		this.difficulte = difficulte;
+	}
+	public Region getRegion() {
+		return region;
+	}
+	public void setRegion(Region region) {
+		this.region = region;
+	}
+	public Utilisateur getAuteur() {
+		return auteur;
+	}
+	public void setAuteur(Utilisateur auteur) {
+		this.auteur = auteur;
+	}
+	public int getLikes() {
+		return likes;
+	}
+	public void setLikes(int likes) {
+		this.likes = likes;
+	}
 	
 	
 }

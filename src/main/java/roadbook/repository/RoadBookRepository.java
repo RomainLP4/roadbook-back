@@ -6,7 +6,6 @@ import org.springframework.stereotype.Repository;
 import roadbook.model.Roadbook;
 
 @Repository
-
 public interface RoadBookRepository extends JpaRepository<Roadbook, Integer> {
 
 }

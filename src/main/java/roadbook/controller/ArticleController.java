@@ -23,8 +23,8 @@ public class ArticleController {
 
 		return articleRepository.findAll();
 	}
-//	@GetMapping("/utilisateurByPseudo/{pseudo}")
-//	public Optional<Utilisateur> findByPseudo(@PathVariable String pseudo) {
-//		return utilisateurRepository.findByPseudo(pseudo);
-//	}
+	@GetMapping("/articlesByTag/{tag}")
+	public Optional<Article> findByTag(@PathVariable String tag) {
+		return articleRepository.findByTag(tag);
+	}
 }
