@@ -53,6 +53,8 @@ public class UtilisateurController {
 		if(utilisateurEnBase.isPresent()) {
 		System.out.println(" on est entré dans le if statement, un save devrait avoir lieu");
 			
+			// Si l'utilisateur ne renseigne pas certains champs, on leur donne par défaut leur valeur actuelle plutôt que de les écraser avec un null
+		
 			if(utilisateur.getPseudo() == null) {								// idéalement on voudrait utiliser un Optional plutôt qu'un test de null
 				utilisateur.setPseudo(utilisateurEnBase.get().getPseudo());		// mais cela supposerait de redéfinir la méthode getPassword de notre 
 			}																	// Entity comme un Optional. Hors cela apparait incohérent avec notre
@@ -62,9 +64,25 @@ public class UtilisateurController {
 			if(utilisateur.getPassword() == null) {
 				utilisateur.setPassword(utilisateurEnBase.get().getPassword());
 			}
-			if(utilisateur.getRole() == null) {
-				utilisateur.setRole(utilisateurEnBase.get().getRole());
+			if(utilisateur.getNom() == null) {
+				utilisateur.setNom(utilisateurEnBase.get().getNom());
 			}
+			if(utilisateur.getPrenom() == null) {
+				utilisateur.setPrenom(utilisateurEnBase.get().getPrenom());
+			}
+			if(utilisateur.getTelephone() == null) {
+				utilisateur.setTelephone(utilisateurEnBase.get().getTelephone());
+			}
+			if(utilisateur.getNiveau() == null) {
+				utilisateur.setNiveau(utilisateurEnBase.get().getNiveau());
+			}
+			if(utilisateur.getVille() == null) {
+				utilisateur.setVille(utilisateurEnBase.get().getVille());
+			}
+			
+			// No if statement here because the update profile endpoint shouldn't allow modifying its admin rights.
+			utilisateur.setRole(utilisateurEnBase.get().getRole());
+		
 			
 			return utilisateurRepository.saveAndFlush(utilisateur);
 	
