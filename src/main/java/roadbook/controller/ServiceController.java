@@ -43,8 +43,8 @@ public class ServiceController {
 	    
 	    @RequestMapping("/delService/{id}")
 	    public void delOne(@PathVariable int id) {
-	        Optional<Service> optEvent = serviceRepository.findById(id);
-	        if (optEvent.isPresent()) {
+	        Optional<Service> optService = serviceRepository.findById(id);
+	        if (optService.isPresent()) {
 	        	serviceRepository.deleteById(id);
 	            System.out.println("Action supprimée");
 	        } else {
