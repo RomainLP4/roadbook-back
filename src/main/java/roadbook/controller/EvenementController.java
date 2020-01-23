@@ -36,14 +36,26 @@ public class EvenementController {
         Optional<Evenement> optEvent = evenementRepository.findById(id);
         if (optEvent.isPresent()) {
             evenementRepository.deleteById(id);
-            System.out.println("Evènement supprimé");
+            System.out.println("Evénement supprimé");
         } else {
-            System.out.println("Pas d'évènement avec cet ID");
+            System.out.println("Pas d'événement avec cet ID");
         }
     }
+	
+	/**
+	 * Recherche par nom d'événement
+	 */
 	@GetMapping("/evenementByNom/{nom}")
 	public Optional<Evenement> findByNom(@PathVariable String nom) {
 		return evenementRepository.findByNom(nom);
+	}
+	
+	/**
+	 * Recherche par type d'événement
+	 */
+	@GetMapping("/evenementByType/{type}")
+	public Optional<Evenement> findByType(@PathVariable String type) {
+		return evenementRepository.findByType(type);
 	}
 	
 	
