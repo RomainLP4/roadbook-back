@@ -6,6 +6,8 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import roadbook.model.Utilisateur;
@@ -33,8 +35,47 @@ public class UtilisateurController {
 		return utilisateurRepository.findByPseudo(pseudo);
 	}
 	
+	/*
+	@PostMapping("/utilisateurUpdateProfile")
+	public Utilisateur saveOrUpdateUtilisateur(@RequestBody Utilisateur utilisateur) {
+		return saveOrUpdateUtilisateur(utilisateur);
+	}
+	*/
 	
-	//@PostMapping("/")
+	@PostMapping("/utilisateurUpdateProfile")
+	public Utilisateur utilisateurUpdateProfile(@RequestBody Utilisateur utilisateur) {
+
+		
+		Optional<Utilisateur> utilisateurEnBase = utilisateurRepository.findById(utilisateur.getId());
+		
+		
+		
+		if(utilisateurEnBase.isPresent()) {
+		System.out.println(" on est entré dans le if statement, un save devrait avoir lieu");
+			
+			if(utilisateur.getPseudo() == null) {								// idéalement on voudrait utiliser un Optional plutôt qu'un test de null
+				utilisateur.setPseudo(utilisateurEnBase.get().getPseudo());		// mais cela supposerait de redéfinir la méthode getPassword de notre 
+			}																	// Entity comme un Optional. Hors cela apparait incohérent avec notre
+			if(utilisateur.getEmail() == null) {								// BDD dans laquelle password est NOT NULL.
+				utilisateur.setEmail(utilisateurEnBase.get().getEmail());		// Une solution est d'ajouter des data transfer object qui eux disposeraient
+			}																	// d'une methode Optional<String> getPassword.
+			if(utilisateur.getPassword() == null) {
+				utilisateur.setPassword(utilisateurEnBase.get().getPassword());
+			}
+			if(utilisateur.getRole() == null) {
+				utilisateur.setRole(utilisateurEnBase.get().getRole());
+			}
+			
+			return utilisateurRepository.saveAndFlush(utilisateur);
 	
+		} else {
+			System.out.println("utilisateurEnBase !isPresent");
+			return utilisateur;
+		}
+		
+		//return utilisateur;
+		//utilisa
+		//return utilisateurRepository.saveAndFlush(utilisateur);
+	}
 	
 }
