@@ -73,6 +73,6 @@ En cours de rédaction
 
 ## MCD
 
-![](https://https://i.imgur.com/IjQ2IK7.png)
+![](https://i.imgur.com/IjQ2IK7.png)
 
 
