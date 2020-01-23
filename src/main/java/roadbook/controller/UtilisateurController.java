@@ -4,6 +4,8 @@ import java.util.Collection;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -44,11 +46,10 @@ public class UtilisateurController {
 	*/
 	
 	@PostMapping("/utilisateurUpdateProfile")
-	// public ResponseEntity<Utilisateur> utilisateurUpdateProfile(@RequestBody Utilisateur utilisateur) {
-	public Utilisateur utilisateurUpdateProfile(@RequestBody Utilisateur utilisateur) {
+	public ResponseEntity<Utilisateur> utilisateurUpdateProfile(@RequestBody Utilisateur utilisateur) {
+	// public Utilisateur utilisateurUpdateProfile(@RequestBody Utilisateur utilisateur) {
 		
 		Optional<Utilisateur> utilisateurEnBase = utilisateurRepository.findById(utilisateur.getId());
-		
 		
 		
 		if(utilisateurEnBase.isPresent()) {
@@ -83,17 +84,12 @@ public class UtilisateurController {
 			// No if statement here because the update profile endpoint shouldn't allow modifying its admin rights.
 			utilisateur.setRole(utilisateurEnBase.get().getRole());
 		
-			// return new ResponseEntity<>(utilisateurRepository.saveAndFlush(utilisateur), HttpStatus.OK); // We'll test with 
-			return utilisateurRepository.saveAndFlush(utilisateur);
+			return new ResponseEntity<>(utilisateurRepository.saveAndFlush(utilisateur), HttpStatus.CREATED); // We'll test with HttpStatus.Create
 	
 		} else {
-			System.out.println("utilisateurEnBase !isPresent");
-			return utilisateur;
+			return new ResponseEntity<>(utilisateur, HttpStatus.NOT_FOUND);
 		}
-		
-		//return utilisateur;
-		//utilisa
-		//return utilisateurRepository.saveAndFlush(utilisateur);
+
 	}
 	@RequestMapping("/delUser/{id}")
     public void delOne(@PathVariable int id) {

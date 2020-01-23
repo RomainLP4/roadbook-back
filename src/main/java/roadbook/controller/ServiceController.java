@@ -21,7 +21,6 @@ public class ServiceController {
 	
 	@RequestMapping("/services")
 	public Collection<Service> findAll(){
-
 		return serviceRepository.findAll();
 	}
 	@GetMapping("/serviceById/{id}")
