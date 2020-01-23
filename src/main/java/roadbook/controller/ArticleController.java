@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import roadbook.model.Article;
+import roadbook.model.Utilisateur;
 import roadbook.repository.ArticleRepository;
 
 @RestController
@@ -41,7 +42,7 @@ public class ArticleController {
     }
 
 
-
+	
 
 
 }

@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import roadbook.model.Utilisateur;
@@ -52,11 +53,11 @@ public class UtilisateurController {
 		
 		if(utilisateurEnBase.isPresent()) {
 		
-			// Si l'utilisateur ne renseigne pas certains champs, on leur donne par défaut leur valeur actuelle plutôt que de les écraser avec un null
+			// Si l'utilisateur ne renseigne pas certains champs, on leur donne par dï¿½faut leur valeur actuelle plutï¿½t que de les ï¿½craser avec un null
 		
-			if(utilisateur.getPseudo() == null) {								// idéalement on voudrait utiliser un Optional plutôt qu'un test de null
-				utilisateur.setPseudo(utilisateurEnBase.get().getPseudo());		// mais cela supposerait de redéfinir la méthode getPassword de notre 
-			}																	// Entity comme un Optional. Hors cela apparait incohérent avec notre
+			if(utilisateur.getPseudo() == null) {								// idï¿½alement on voudrait utiliser un Optional plutï¿½t qu'un test de null
+				utilisateur.setPseudo(utilisateurEnBase.get().getPseudo());		// mais cela supposerait de redï¿½finir la mï¿½thode getPassword de notre 
+			}																	// Entity comme un Optional. Hors cela apparait incohï¿½rent avec notre
 			if(utilisateur.getEmail() == null) {								// BDD dans laquelle password est NOT NULL.
 				utilisateur.setEmail(utilisateurEnBase.get().getEmail());		// Une solution est d'ajouter des data transfer object qui eux disposeraient
 			}																	// d'une methode Optional<String> getPassword.
@@ -94,5 +95,14 @@ public class UtilisateurController {
 		//utilisa
 		//return utilisateurRepository.saveAndFlush(utilisateur);
 	}
-	
+	@RequestMapping("/delUser/{id}")
+    public void delOne(@PathVariable int id) {
+        Optional<Utilisateur> optUser = utilisateurRepository.findById(id);
+        if (optUser.isPresent()) {
+            utilisateurRepository.deleteById(id);
+            System.out.println("Utilisateur supprimÃ©");
+        } else {
+            System.out.println("Pas d'utilisateur avec cet ID");
+        }
+    }
 }
