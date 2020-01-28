@@ -1,5 +1,10 @@
 package roadbook.model;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -8,9 +13,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 @Entity
+@JsonIdentityInfo(generator= ObjectIdGenerators.PropertyGenerator.class, property="id")
 public class Utilisateur {
 
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -26,7 +30,7 @@ public class Utilisateur {
 	private String ville;
 	private String role; // ENUM ?
 	
-	
+	//@JsonIgnore
 	@OneToMany (mappedBy="proprietaire", orphanRemoval=true)
 	private List<Moto> listeMotos;
 

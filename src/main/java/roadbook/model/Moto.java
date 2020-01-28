@@ -7,9 +7,13 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 @Entity
+@JsonIdentityInfo(generator= ObjectIdGenerators.PropertyGenerator.class, property="id")
+
 public class Moto {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Id
@@ -21,7 +25,7 @@ public class Moto {
 	
 	
 	@ManyToOne
-	@JsonIgnore
+	//@JsonIgnore
 	@JoinColumn (name = "proprietaire", referencedColumnName = "id")
 	private Utilisateur proprietaire;
 
@@ -76,6 +80,12 @@ public class Moto {
 	public void setProprietaire(Utilisateur proprietaire) {
 		this.proprietaire = proprietaire;
 	}
-	
+	public Utilisateur getUtilisateur() {
+		return proprietaire;
+	}
+
+	public void setUtilisateur(Utilisateur utilisateur) {
+		this.proprietaire = utilisateur;
+	}
 	
 }
