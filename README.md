@@ -69,7 +69,7 @@ Recherche en cours pour la création d'itinéraire.
 
 #### Scenarios des Use Cases
 
-###### Scénario 1 : Un utilisateur (inscrit ou non) veut découvrir des itinéraires de balades dans ma région.
+###### Scénario 1 : Un utilisateur (inscrit ou non) veut découvrir des itinéraires de balades dans sa région.
 
 L'utilisateur lance l'application / se rends sur le site Roadbook-ride. Depuis le menu - barre de navigation - de la page d'accueil, il accède à la page des roadbooks.
 Les roadbooks les plus populaires (toutes régions confondues) apparaissent à l'écran, sous la forme de fiche récapitulatives (nom, kilomètrage, temps estimé, nombre d'étapes... aperçu trajet ?)
