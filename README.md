@@ -69,7 +69,32 @@ Recherche en cours pour la création d'itinéraire.
 
 #### Scenarios des Use Cases
 
-En cours de rédaction
+###### Scénario 1 : Un utilisateur (inscrit ou non) veut découvrir des itinéraires de balades dans ma région.
+
+L'utilisateur lance l'application / se rends sur le site Roadbook-ride. Depuis le menu - barre de navigation - de la page d'accueil, il accède à la page des roadbooks.
+Les roadbooks les plus populaires (toutes régions confondues) apparaissent à l'écran, sous la forme de fiche récapitulatives (nom, kilomètrage, temps estimé, nombre d'étapes... aperçu trajet ?)
+
+Il clique sur la petite carte de France pour l'agrandir et sélectionner sa région.
+Puis l'utilisateur clique sur sa région. La carte se réduit et la liste des roadbooks affichés se met à jour pour présenter les roadbooks les plus populaires parmi ceux localisés à proximité.
+
+Il fait défiler la liste jusqu'à en trouver un dont le point de départ se trouve près de chez lui. Un rapide coup d'oeil sur la fiche récapitulative l'informe de la distance et du temps estimé (deux jours, parfait pour une sortie sur un week-end)
+
+Ce roadbook ayant attiré son attention, il clique sur sa fiche pour accéder aux détails.
+
+Il peut à tout moment revenir à la liste des Roadbooks.
+
+
+###### Scénario 2 : Un utilisateur (inscrit) souhaite organiser un évènement.
+
+L'utilisateur lance l'application / se rends sur le site Roadbook-ride. Au besoin, il se connecte avec ses identifiants.
+Depuis le menu - barre de navigation - de la page d'accueil, il accède à la page des évènements.
+En dessous de la liste des évènement, il clique sur 'ajouter un évènement', qui ouvre un formulaire.
+
+Il remplit les champs obligatoires (nom, type d'évènement, description, date) et optionnels [ajouter ici comment se passe la sélection d'un RB] , et valide.
+
+Le formulaire se referme, une notification l'informe que son évènement a bien été enregistré, il est renvoyé sur la page des évènements.
+
+Il peut immédiatement vérifier que son évènement est bien listé en effectuant une recherche par nom sur cette même page.
 
 ## MCD
 
