@@ -18,7 +18,7 @@ public class Moto {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Id
 	private int id;
-	private String categorie;
+	private String categorie; //enum
 	private String marque;
 	private String modele;
 	private String annee;

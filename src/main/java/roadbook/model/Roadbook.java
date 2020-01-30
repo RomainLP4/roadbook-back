@@ -23,7 +23,7 @@ public class Roadbook {
 	private String nom;
 	private String description;
 	private int kilometrage;
-	private String difficulte;
+	private String difficulte; //enum
 	private int likes;
 	
 

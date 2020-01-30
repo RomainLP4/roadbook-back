@@ -18,7 +18,7 @@ public class Pointconstruction {
 	private float latitude;
 	private float longitude;
 	private boolean is_etape;
-	private String type_etape;
+	private String type_etape; //enum
 	
 	@ManyToOne
 	@JsonIgnore

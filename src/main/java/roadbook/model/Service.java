@@ -28,7 +28,7 @@ public class Service implements Serializable {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
 	private String nom;
-	private String categorie;
+	private String categorie; //enum
 	private String description;
 	private int nbr_place;
 	private int note;
