@@ -7,16 +7,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import roadbook.model.Article;
-import roadbook.model.Moto;
-import roadbook.model.Utilisateur;
 import roadbook.repository.ArticleRepository;
 
+
+@CrossOrigin(origins = "http://localhost:4200")
 @RestController
 public class ArticleController {
-	
+
 	@Autowired
 	private ArticleRepository articleRepository;
-	
+
 	@GetMapping("/articles")
 	public Collection<Article> findAll(){
 
