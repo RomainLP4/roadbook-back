@@ -19,9 +19,7 @@ public class Article {
 	private String description;
 	private String texte;
 	private int nb_vue;
-	// private Date date_publication;
 	private String date_publication;
-	
 	
 
 	@OneToOne
@@ -75,15 +73,6 @@ public class Article {
 	public void setNb_vue(int nb_vue) {
 		this.nb_vue = nb_vue;
 	}
-	
-	/*
-	public Date getDate_publication() {
-		return date_publication;
-	}
-
-	public void setDate_publication(Date date_publication) {
-		this.date_publication = date_publication;
-	}*/
 
 	public String getDate_publication() {
 		return date_publication;
@@ -120,8 +109,5 @@ public class Article {
 	public Article() {
 		super();
 	}
-	
-	
-	
 	
 }

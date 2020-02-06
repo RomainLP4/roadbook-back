@@ -19,7 +19,7 @@ public class Evenement {
 	@Id
 	private int id;
 	private String nom;
-	private String type;
+	private String type; //enum
 	private String description;
 	
 	@ManyToOne
@@ -29,7 +29,7 @@ public class Evenement {
 	private Date date;
 	
 	@ManyToOne
-	@JoinColumn(name = "id_utilisateur", referencedColumnName = "id")
+	@JoinColumn(name = "id_utilisateur", referencedColumnName = "id" )
 	private Utilisateur utilisateur;
 	
 	@OneToOne
