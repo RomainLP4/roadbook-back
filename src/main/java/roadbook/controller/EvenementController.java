@@ -77,6 +77,10 @@ public class EvenementController {
 		return evenementRepository.findAllByType(type);
 	}
 	
+	/**
+	 *  Recherche 
+	 */
+	
 	
 	
 	/**
@@ -100,19 +104,17 @@ public class EvenementController {
 	public ResponseEntity<Evenement> updateEvenement(@RequestBody Evenement evenement) {
 		
 		Optional<Evenement> evenementEnBase = evenementRepository.findById(evenement.getId());
-		
-		
-		if(evenementEnBase.isPresent()) {
-		
+			
+		if(evenementEnBase.isPresent()) {	
 			// Si l'utilisateur ne renseigne pas certains champs, on leur donne par défaut leur valeur actuelle plutôt que de les écraser avec un null
 		
-			if(evenement.getType() == null) {								// id�alement on voudrait utiliser un Optional plut�t qu'un test de null
-				evenement.setType(evenementEnBase.get().getType());		// mais cela supposerait de red�finir la m�thode getPassword de notre 
-			}																	// Entity comme un Optional. Hors cela apparait incoh�rent avec notre
-			if(evenement.getDescription() == null) {								// BDD dans laquelle password est NOT NULL.
-				evenement.setDescription(evenementEnBase.get().getDescription());		// Une solution est d'ajouter des data transfer object qui eux disposeraient
-			}																	// d'une methode Optional<String> getPassword.
-			if(evenement.getNom() == null) {
+			if(evenement.getType().isEmpty()) {								
+				evenement.setType(evenementEnBase.get().getType());		
+			}																	
+			if(evenement.getDescription().isEmpty()) {								
+				evenement.setDescription(evenementEnBase.get().getDescription());		
+			}																	
+			if(evenement.getNom().isEmpty()) {
 				evenement.setNom(evenementEnBase.get().getNom());
 			}
 			if(evenement.getDate() == null) {
@@ -126,17 +128,14 @@ public class EvenementController {
 			}
 			if(evenement.getRoadbook() == null) {
 				evenement.setRoadbook(evenementEnBase.get().getRoadbook());
-			}
-			
-			
-			
-		
-			return new ResponseEntity<>(evenementRepository.saveAndFlush(evenement), HttpStatus.CREATED); // We'll test with HttpStatus.Create
+			}			
+			return new ResponseEntity<>(evenementRepository.saveAndFlush(evenement), HttpStatus.CREATED); 
 	
 		} else {
 			return new ResponseEntity<>(evenement, HttpStatus.NOT_FOUND);
 		}
-
 	}
+	
+	
 
 }

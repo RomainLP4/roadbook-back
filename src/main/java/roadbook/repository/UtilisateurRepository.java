@@ -10,6 +10,8 @@ public interface UtilisateurRepository extends JpaRepository<Utilisateur, Intege
 		
 		public Optional<Utilisateur> findByPseudo(String pseudo);
 		
+		public Optional<Utilisateur> findByEmail(String email);
+		
 		//public Utilisateur saveOrUpdateUtilisateur(Utilisateur utilisateur);
 		public Utilisateur saveAndFlush(Utilisateur utilisateur);
 }

@@ -1,57 +1,84 @@
 package roadbook.controller;
 
+import java.net.http.HttpRequest;
 import java.util.Collection;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import roadbook.model.Utilisateur;
 import roadbook.repository.UtilisateurRepository;
 
 @RestController
+@RequestMapping("/utilisateur")
+@CrossOrigin(origins = "http://localhost:4200")
 public class UtilisateurController {
 	
 	@Autowired
 	private UtilisateurRepository utilisateurRepository;
 	
-	@GetMapping("/utilisateurs")
+	@GetMapping("/all")
 	public Collection<Utilisateur> findAll(){
 		return utilisateurRepository.findAll();
 	}
 	
-	@GetMapping("/utilisateurById/{id}")
+	@GetMapping("/byId/{id}")
 	public Optional<Utilisateur> findById(@PathVariable Integer id) {
 		return utilisateurRepository.findById(id);
 	}
 	
-	@GetMapping("/utilisateurByPseudo/{pseudo}")
+	@GetMapping("/byPseudo/{pseudo}")
 	public Optional<Utilisateur> findByPseudo(@PathVariable String pseudo) {
 		return utilisateurRepository.findByPseudo(pseudo);
 	}
 	
+	@GetMapping("/byEmailCheckPassword/{email}/{pw}")			// A REMPLACER - ABSOLUMENT PAS SECURISE (passer par un service d'encodage jwt)
+	public ResponseEntity<Utilisateur> attemptLogin(@PathVariable("email") String email, @PathVariable("pw") String pw){
+		System.out.println("Repo consulté pour email : " + email + " et password : " +pw);
+		
+		
+		Optional<Utilisateur> utilisateurEnBase = utilisateurRepository.findByEmail(email);
+		
+		if(utilisateurEnBase.isPresent()) {
+			System.out.println("utilisateur trouvé pour : " + email);
+			Utilisateur utlisateurPresentEnBase = utilisateurEnBase.get();
+			
+			if(utlisateurPresentEnBase.getPassword().equals(pw)){
+				return new ResponseEntity<Utilisateur>(utlisateurPresentEnBase, HttpStatus.OK);
+			} else {
+				System.out.println("else from inner 'if' statement");
+				return new ResponseEntity<Utilisateur>(HttpStatus.NOT_FOUND); // se documenter sur HttpStatus.UNAUTHORIZED 
+			}
+			
+		} else {
+			System.out.println("else from outer 'if' statement");
+			return new ResponseEntity<Utilisateur>(HttpStatus.NOT_FOUND);
+		}
+	}
 	
-	@PostMapping("/utilisateurSave")
+	@PostMapping("/save")
 	public ResponseEntity<Utilisateur> saveUtilisateur(@RequestBody Utilisateur utilisateur) {
 		
 		if(utilisateur.getPseudo().isEmpty() || utilisateur.getEmail().isEmpty() || utilisateur.getPassword().isEmpty()) {
 			return new ResponseEntity<>(utilisateur, HttpStatus.BAD_REQUEST);
 		} else {
-			//utilisateur.setRole(Role.Utilisateur);
 			utilisateur.setRole("Utilisateur");
 			return new ResponseEntity<>(utilisateurRepository.save(utilisateur), HttpStatus.CREATED);
 		}
 	}
 	
 	
-	@PostMapping("/utilisateurUpdateProfile")
+	@PostMapping("/updateProfile")
 	public ResponseEntity<Utilisateur> utilisateurUpdateProfile(@RequestBody Utilisateur utilisateur) {
 	// public Utilisateur utilisateurUpdateProfile(@RequestBody Utilisateur utilisateur) {
 		
@@ -97,7 +124,7 @@ public class UtilisateurController {
 		}
 	}
 	
-	@RequestMapping("/delUser/{id}")
+	@RequestMapping("/del/{id}")
     public void delOne(@PathVariable int id) {
         Optional<Utilisateur> optUser = utilisateurRepository.findById(id);
         if (optUser.isPresent()) {

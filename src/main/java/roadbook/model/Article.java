@@ -19,8 +19,11 @@ public class Article {
 	private String description;
 	private String texte;
 	private int nb_vue;
-	private Date date_publication;
+	// private Date date_publication;
+	private String date_publication;
 	
+	
+
 	@OneToOne
 	@JoinColumn(name = "id_utilisateur", referencedColumnName = "id")
 	private Utilisateur auteur;
@@ -72,16 +75,23 @@ public class Article {
 	public void setNb_vue(int nb_vue) {
 		this.nb_vue = nb_vue;
 	}
-
+	
+	/*
 	public Date getDate_publication() {
 		return date_publication;
 	}
 
 	public void setDate_publication(Date date_publication) {
 		this.date_publication = date_publication;
+	}*/
+
+	public String getDate_publication() {
+		return date_publication;
 	}
 
-	
+	public void setDate_publication(String date_publication) {
+		this.date_publication = date_publication;
+	}
 
 	public Utilisateur getAuteur() {
 		return auteur;
@@ -97,7 +107,7 @@ public class Article {
 				+ texte + ", nb_vue=" + nb_vue + ", date_publication=" + date_publication + ", auteur=" + auteur + "]";
 	}
 
-	public Article(String titre, String tag, String description, String texte, int nb_vue, Date date_publication) {
+	public Article(String titre, String tag, String description, String texte, int nb_vue, String date_publication) {
 		super();
 		this.titre = titre;
 		this.tag = tag;
