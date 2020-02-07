@@ -20,6 +20,7 @@ public class Article {
 	private String texte;
 	private int nb_vue;
 	private String date_publication;
+	private String image_url;
 	
 
 	@OneToOne
@@ -56,6 +57,14 @@ public class Article {
 
 	public void setDescription(String description) {
 		this.description = description;
+	}
+
+	public void setImage_url(String image_url) {
+		this.image_url = image_url;
+	}
+
+	public String getImage_url() {
+		return image_url;
 	}
 
 	public String getTexte() {
@@ -96,7 +105,7 @@ public class Article {
 				+ texte + ", nb_vue=" + nb_vue + ", date_publication=" + date_publication + ", auteur=" + auteur + "]";
 	}
 
-	public Article(String titre, String tag, String description, String texte, int nb_vue, String date_publication) {
+	public Article(String titre, String tag, String description, String texte, int nb_vue, String date_publication, String image_url,Utilisateur auteur) {
 		super();
 		this.titre = titre;
 		this.tag = tag;
@@ -104,10 +113,13 @@ public class Article {
 		this.texte = texte;
 		this.nb_vue = nb_vue;
 		this.date_publication = date_publication;
+		this.image_url = image_url;
+		this.auteur = auteur;
 	}
+
 
 	public Article() {
 		super();
 	}
-	
+
 }

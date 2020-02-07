@@ -32,14 +32,28 @@ public class Service implements Serializable {
 	private String description;
 	private int nbr_place;
 	private int note;
+	private String image_url;
 	@OneToOne
 	//@JoinColumn(name = "id_utilisateur", referencedColumnName="id")
 	private Utilisateur utilisateurs;
 	@ManyToOne
 	@JoinColumn(name = "id_region", referencedColumnName = "id")
 	private Region region;
-	
-	
+
+	public String getImage_url() {
+		return image_url;
+	}
+
+	public void setImage_url(String image_url) {
+		this.image_url = image_url;
+	}
+
+	public Service(String image_url, Utilisateur utilisateurs, Region region) {
+		this.image_url = image_url;
+		this.utilisateurs = utilisateurs;
+		this.region = region;
+	}
+
 	public String getNom() {
 		return nom;
 	}

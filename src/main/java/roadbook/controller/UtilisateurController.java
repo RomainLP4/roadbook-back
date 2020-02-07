@@ -44,13 +44,13 @@ public class UtilisateurController {
 	
 	@GetMapping("/byEmailCheckPassword/{email}/{pw}")			// A REMPLACER - ABSOLUMENT PAS SECURISE (passer par un service d'encodage jwt)
 	public ResponseEntity<Utilisateur> attemptLogin(@PathVariable("email") String email, @PathVariable("pw") String pw){
-		System.out.println("Repo consulté pour email : " + email + " et password : " +pw);
+		System.out.println("Repo consulte pour email : " + email + " et password : " +pw);
 		
 		
 		Optional<Utilisateur> utilisateurEnBase = utilisateurRepository.findByEmail(email);
 		
 		if(utilisateurEnBase.isPresent()) {
-			System.out.println("utilisateur trouvé pour : " + email);
+			System.out.println("utilisateur trouvï¿½ pour : " + email);
 			Utilisateur utlisateurPresentEnBase = utilisateurEnBase.get();
 			
 			if(utlisateurPresentEnBase.getPassword().equals(pw)){

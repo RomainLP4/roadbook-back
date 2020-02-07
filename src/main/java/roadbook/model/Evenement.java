@@ -21,6 +21,7 @@ public class Evenement {
 	private String nom;
 	private String type; //enum
 	private String description;
+	private String image_url;
 	
 	@ManyToOne
 	@JoinColumn(name = "id_region", referencedColumnName = "id")
@@ -41,7 +42,7 @@ public class Evenement {
 	}
 
 	public Evenement(String nom, String type, String description, Region region, Date date, Utilisateur utilisateur,
-			Roadbook roadbook) {
+			Roadbook roadbook,String image_url) {
 		super();
 		this.nom = nom;
 		this.type = type;
@@ -50,6 +51,15 @@ public class Evenement {
 		this.date = date;
 		this.utilisateur = utilisateur;
 		this.roadbook = roadbook;
+		this.image_url = image_url;
+	}
+
+	public void setImage_url(String image_url) {
+		this.image_url = image_url;
+	}
+
+	public String getImage_url() {
+		return image_url;
 	}
 
 	public int getId() {

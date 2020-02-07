@@ -25,6 +25,7 @@ public class Roadbook {
 	private int kilometrage;
 	private String difficulte; //enum
 	private int likes;
+	private String image_url;
 	
 
 	
@@ -98,6 +99,15 @@ public class Roadbook {
 	public void setLikes(int likes) {
 		this.likes = likes;
 	}
-	
-	
+
+	public void setImage_url(String image_url) {
+		this.image_url = image_url;
+	}
+
+	public String getImage_url() {
+		return image_url;
+	}
+
+	public Roadbook() {
+	}
 }

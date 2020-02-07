@@ -22,6 +22,7 @@ public class Moto {
 	private String marque;
 	private String modele;
 	private String annee;
+	private String image_url;
 	
 	
 	@ManyToOne
@@ -29,10 +30,13 @@ public class Moto {
 	@JoinColumn (name = "proprietaire", referencedColumnName = "id")
 	private Utilisateur proprietaire;
 
-	
-	
-	
-	
+
+	public String getImage_url() {return image_url;}
+
+	public void setImage_url(String image_url) {
+		this.image_url = image_url;
+	}
+
 	public int getId() {
 		return id;
 	}
@@ -87,5 +91,7 @@ public class Moto {
 	public void setUtilisateur(Utilisateur utilisateur) {
 		this.proprietaire = utilisateur;
 	}
-	
+
+	public Moto() {
+	}
 }

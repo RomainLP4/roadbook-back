@@ -29,6 +29,7 @@ public class Utilisateur {
 	private String niveau;  // ENUM ?
 	private String ville;
 	private String role; // ENUM ?
+	private String image_url;
 	
 	//@JsonIgnore
 	@OneToMany (mappedBy="proprietaire", orphanRemoval=true)
@@ -39,7 +40,7 @@ public class Utilisateur {
 	
 	
 	public Utilisateur(String pseudo, String email, String password, String nom, String prenom, String telephone,
-			String niveau, String ville, String role) {
+			String niveau, String ville, String role,String image_url, List<Moto> listeMotos) {
 		super();
 		this.pseudo = pseudo;
 		this.email = email;
@@ -50,6 +51,8 @@ public class Utilisateur {
 		this.niveau = niveau;
 		this.ville = ville;
 		this.role = role;
+		this.image_url = image_url;
+		this.listeMotos = listeMotos;
 	}
 
 
@@ -57,6 +60,13 @@ public class Utilisateur {
 		super();
 	}
 
+	public String getImage_url() {
+		return image_url;
+	}
+
+	public void setImage_url(String image_url) {
+		this.image_url = image_url;
+	}
 
 	public int getId() {
 		return id;
