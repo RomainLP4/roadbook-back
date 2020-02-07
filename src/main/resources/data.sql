@@ -10,8 +10,8 @@ INSERT INTO roadbookride.region (id, nom) VALUES (1, 'Occitanie');
 INSERT INTO roadbookride.region (id, nom) VALUES (2, 'Pays de la loire');
 INSERT INTO roadbookride.region (id, nom) VALUES (3, 'Ile de France');
 
-INSERT INTO roadbookride.article (id, titre, tag, description, texte, id_utilisateur, nb_vue, date_publication) VALUES (1, 'La moto pour les nulles', 'nulle', 'On vous explique la moto', 'alors une moto n''est pas un scooter !!!!c''est beaucoup mieux', 2, 2, '2020-01-21');
-INSERT INTO roadbookride.article (id, titre, tag, description, texte, id_utilisateur, nb_vue, date_publication) VALUES (2, 'Bien choisir son équipement', 'equipement', 'Les équipement moto', 'Pour bien choisir son équipement il faut bien connaitre son corps et surtout la taille qu''il vous faut !!', 1, 5, '2020-01-08');
+INSERT INTO roadbookride.article (id, titre, tag, description, texte, id_utilisateur, nb_vue, date_publication,image_url) VALUES (1, 'La moto pour les nulles', 'nulle', 'On vous explique la moto', 'alors une moto n''est pas un scooter !!!!c''est beaucoup mieux', 2, 2, '2020-01-21','https://www.motoguzzi.com/mediaObject/accessories/motoguzzi/2S000256/resolutions/res-o850x850-p-1514362764/2S000256.jpg');
+INSERT INTO roadbookride.article (id, titre, tag, description, texte, id_utilisateur, nb_vue, date_publication,image_url) VALUES (2, 'Bien choisir son équipement', 'equipement', 'Les équipement moto', 'Pour bien choisir son équipement il faut bien connaitre son corps et surtout la taille qu''il vous faut !!', 1, 5, '2020-01-08','https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQXUbUPEc8ie86dLfO12rOnfqzPbFv2mKJhPEBSII9nLizAlQSo');
 
 INSERT INTO roadbookride.service (id, nom, categorie, description, nbr_place, note, id_region, utilisateurs_id) VALUES (1, 'au dodo', 'hotel', 'une chambre chez l''habitant', 5, 2, 1, 1);
 INSERT INTO roadbookride.service (id, nom, categorie, description, nbr_place, note, id_region, utilisateurs_id) VALUES (2, 'jojo la bricol', 'mecanique', 'je répare vos moto a domicile', 1, 5, 3, 2);
