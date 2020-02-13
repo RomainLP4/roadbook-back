@@ -17,12 +17,15 @@ public class Service implements Serializable {
 	public Service() {
 		//utilisateurs = new ArrayList<Utilisateur>();
 	}
-	public Service(String nom, String categorie, String description, Integer nbr_place, Integer note) {
+	public Service(String nom, String categorie, String description, Integer nbr_place, Integer note, String image_url, String region, Utilisateur utilisateurs) {
 		this.nom = nom;
 		this.categorie = categorie;
 		this.description = description;
 		this.nbr_place = nbr_place;
 		this.note = note;
+		this.image_url = image_url;
+		this.region = region;
+		this.utilisateurs = utilisateurs;
 	}
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -36,9 +39,9 @@ public class Service implements Serializable {
 	@OneToOne
 	//@JoinColumn(name = "id_utilisateur", referencedColumnName="id")
 	private Utilisateur utilisateurs;
-	@ManyToOne
-	@JoinColumn(name = "id_region", referencedColumnName = "id")
-	private Region region;
+//	@ManyToOne
+//	@JoinColumn(name = "id_region", referencedColumnName = "id")
+	private String region;
 
 	public String getImage_url() {
 		return image_url;
@@ -48,11 +51,7 @@ public class Service implements Serializable {
 		this.image_url = image_url;
 	}
 
-	public Service(String image_url, Utilisateur utilisateurs, Region region) {
-		this.image_url = image_url;
-		this.utilisateurs = utilisateurs;
-		this.region = region;
-	}
+
 
 	public String getNom() {
 		return nom;
@@ -85,10 +84,10 @@ public class Service implements Serializable {
 		this.note = note;
 	}
 	
-	public Region getRegion() {
+	public String getRegion() {
 		return region;
 	}
-	public void setRegion(Region region) {
+	public void setRegion(String region) {
 		this.region = region;
 	}
 	
