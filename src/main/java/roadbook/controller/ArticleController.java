@@ -4,11 +4,14 @@ import java.util.Collection;
 import java.util.Optional;
 
 
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.beans.factory.annotation.Autowired;
 
 
 import roadbook.model.Article;
+import roadbook.model.Utilisateur;
 import roadbook.repository.ArticleRepository;
 
 
@@ -34,7 +37,6 @@ public class ArticleController {
         return articleRepository.saveAndFlush(article);
     }
 
-
 	@DeleteMapping("/delArticle/{id}")
     public void delOne(@PathVariable int id) {
         Optional<Article> optArticle = articleRepository.findById(id);
@@ -45,6 +47,17 @@ public class ArticleController {
             System.out.println("Pas d'article avec cet ID");
         }
     }
-
+	@GetMapping("/incrementViews/{id}")
+	public ResponseEntity<Void> incrementViews(@PathVariable int id) {
+		Optional<Article> optArticle = articleRepository.findById(id);
+		if (optArticle.isPresent()) {
+			Article articleInBase = optArticle.get();
+			articleInBase.setNb_vue(articleInBase.getNb_vue()+1);
+			articleRepository.saveAndFlush(articleInBase);
+			return new ResponseEntity<Void>(HttpStatus.OK);
+		} else {
+			return new ResponseEntity<Void>(HttpStatus.NOT_FOUND);
+		}
+	}
 }
 
