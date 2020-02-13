@@ -114,7 +114,10 @@ public class EvenementController {
 		
 			if(evenement.getType().isEmpty()) {								
 				evenement.setType(evenementEnBase.get().getType());		
-			}																	
+			}
+			if(evenement.getImageUrl().isEmpty()) {
+				evenement.setImageUrl(evenementEnBase.get().getImageUrl());
+			}
 			if(evenement.getDescription().isEmpty()) {								
 				evenement.setDescription(evenementEnBase.get().getDescription());		
 			}																	
