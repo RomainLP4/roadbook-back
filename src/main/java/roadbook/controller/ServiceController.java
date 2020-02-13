@@ -40,7 +40,7 @@ public class ServiceController {
 	        return serviceRepository.saveAndFlush(service);
 	    }
 	    
-	    @RequestMapping("/delService/{id}")
+	    @DeleteMapping("/delService/{id}")
 	    public void delOne(@PathVariable int id) {
 	        Optional<Service> optService = serviceRepository.findById(id);
 	        if (optService.isPresent()) {
