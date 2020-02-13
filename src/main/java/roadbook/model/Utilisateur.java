@@ -32,7 +32,7 @@ public class Utilisateur {
 	private String role; // ENUM ?
 	private String image_url;
 	
-	//@JsonIgnore
+	@JsonIgnore
 	@OneToMany (mappedBy="proprietaire", orphanRemoval=true)
 	private List<Moto> listeMotos;
 

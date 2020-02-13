@@ -92,6 +92,9 @@ public class ServiceController {
 				if(service.getNom() == null) {
 					service.setNom(serviceEnBase.get().getNom());
 				}
+				if(service.getImage_url() == null) {
+					service.setImage_url(serviceEnBase.get().getImage_url());
+				}
 				if(service.getNote() == 0) {
 					service.setNote(serviceEnBase.get().getNote());
 				}
