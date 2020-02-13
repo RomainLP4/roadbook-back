@@ -6,6 +6,7 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 import java.util.List;
+import java.util.Objects;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -14,7 +15,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
 @Entity
-//@JsonIdentityInfo(generator= ObjectIdGenerators.PropertyGenerator.class, property="id")
+//@JsonIdentityInfo(generator= ObjectIdGenerators.PropertyGenerator.class, property="id",scope = Utilisateur.class )
 public class Utilisateur {
 
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -35,12 +36,33 @@ public class Utilisateur {
 	@OneToMany (mappedBy="proprietaire", orphanRemoval=true)
 	private List<Moto> listeMotos;
 
-	
-	
-	
-	
+
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (!(o instanceof Utilisateur)) return false;
+		Utilisateur that = (Utilisateur) o;
+		return getId() == that.getId() &&
+				Objects.equals(getPseudo(), that.getPseudo()) &&
+				Objects.equals(getEmail(), that.getEmail()) &&
+				Objects.equals(getPassword(), that.getPassword()) &&
+				Objects.equals(getNom(), that.getNom()) &&
+				Objects.equals(getPrenom(), that.getPrenom()) &&
+				Objects.equals(getTelephone(), that.getTelephone()) &&
+				Objects.equals(getNiveau(), that.getNiveau()) &&
+				Objects.equals(getVille(), that.getVille()) &&
+				Objects.equals(getRole(), that.getRole()) &&
+				Objects.equals(getImage_url(), that.getImage_url()) &&
+				Objects.equals(getListeMotos(), that.getListeMotos());
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(getId(), getPseudo(), getEmail(), getPassword(), getNom(), getPrenom(), getTelephone(), getNiveau(), getVille(), getRole(), getImage_url(), getListeMotos());
+	}
+
 	public Utilisateur(String pseudo, String email, String password, String nom, String prenom, String telephone,
-			String niveau, String ville, String role,String image_url, List<Moto> listeMotos) {
+					   String niveau, String ville, String role, String image_url, List<Moto> listeMotos) {
 		super();
 		this.pseudo = pseudo;
 		this.email = email;

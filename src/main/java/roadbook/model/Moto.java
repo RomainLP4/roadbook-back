@@ -11,8 +11,10 @@ import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
+import java.util.Objects;
+
 @Entity
-@JsonIdentityInfo(generator= ObjectIdGenerators.PropertyGenerator.class, property="id")
+@JsonIdentityInfo(generator= ObjectIdGenerators.PropertyGenerator.class, property="id",scope = Moto.class)
 
 public class Moto {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -93,5 +95,24 @@ public class Moto {
 	}
 
 	public Moto() {
+	}
+
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (!(o instanceof Moto)) return false;
+		Moto moto = (Moto) o;
+		return getId() == moto.getId() &&
+				Objects.equals(getCategorie(), moto.getCategorie()) &&
+				Objects.equals(getMarque(), moto.getMarque()) &&
+				Objects.equals(getModele(), moto.getModele()) &&
+				Objects.equals(getAnnee(), moto.getAnnee()) &&
+				Objects.equals(getImage_url(), moto.getImage_url()) &&
+				Objects.equals(getProprietaire(), moto.getProprietaire());
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(getId(), getCategorie(), getMarque(), getModele(), getAnnee(), getImage_url(), getProprietaire());
 	}
 }
