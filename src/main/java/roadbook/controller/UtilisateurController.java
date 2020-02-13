@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -78,18 +79,23 @@ public class UtilisateurController {
 	}
 	
 	
-	@PostMapping("/updateProfile")
+	@PutMapping("/updateProfile")
 	public ResponseEntity<Utilisateur> utilisateurUpdateProfile(@RequestBody Utilisateur utilisateur) {
 	// public Utilisateur utilisateurUpdateProfile(@RequestBody Utilisateur utilisateur) {
 		
+		System.out.println("updateProfile called");
+		System.out.println("test affichage utilisateur en entrée : " + utilisateur);
+		System.out.println("nouveau num tel : " + utilisateur.getTelephone());
 		Optional<Utilisateur> utilisateurEnBase = utilisateurRepository.findById(utilisateur.getId());
+		System.out.println("pas d'erreur à la requete d'un optional en base à l'id" + utilisateur.getId());
 		
 		
 		if(utilisateurEnBase.isPresent()) {
 			Utilisateur utilisateurPresentEnBase = utilisateurEnBase.get();
-		
+			System.out.println("test affichage utilisateur en base : " + utilisateurPresentEnBase);
 			// Si l'utilisateur ne renseigne pas certains champs, on leur donne par defaut leur valeur actuelle plutot que de les ecraser avec un null
-		
+			
+
 			if(utilisateur.getPseudo().isEmpty()) {								
 				utilisateur.setPseudo(utilisateurPresentEnBase.getPseudo());		
 			}																	
@@ -116,7 +122,7 @@ public class UtilisateurController {
 			}
 			// No if statement here because the update profile endpoint shouldn't allow modifying its admin rights.
 			utilisateur.setRole(utilisateurEnBase.get().getRole());
-		
+			
 			return new ResponseEntity<>(utilisateurRepository.saveAndFlush(utilisateur), HttpStatus.CREATED); // We'll test with HttpStatus.Create
 	
 		} else {
