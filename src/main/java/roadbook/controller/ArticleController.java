@@ -1,6 +1,7 @@
 package roadbook.controller;
 
 import java.util.Collection;
+import java.util.List;
 import java.util.Optional;
 
 
@@ -28,8 +29,8 @@ public class ArticleController {
 		return articleRepository.findAll();
 	}
 	@GetMapping("/articlesByTag/{tag}")
-	public Optional<Article> findByTag(@PathVariable String tag) {
-		return articleRepository.findByTag(tag);
+	public List<Article> findByTag(@PathVariable String tag) {
+		return articleRepository.findAllByTag(tag);
 	}
 	
 	@PostMapping("/addArticle")
