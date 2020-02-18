@@ -53,7 +53,7 @@ Cette page parmet de consulter des articles. Et, seul un utilisateur connecté p
 ### La Page RoadBook : 
 Cette page n'a pas encore été créée.
 ### La Page Evénements : 
-Cette page offre la possibilité de consulter les événements proposés par la communauté. En cliquant sur un événement, les détails de celui-ci s'affiche dans la carte sous la liste. Un utilisateur a alors la possibilité de le modifier, le supprimer et de revenir à la liste principale.<br/>
+Cette page offre la possibilité de consulter les événements proposés par la communauté. En cliquant sur un événement, les détails de celui-ci s'affichent dans la carte sous la liste. Un utilisateur a alors la possibilité de le modifier, le supprimer et de revenir à la liste principale.<br/>
 Il peut aussi ajouter un événement via un bouton qui ouvre un formulaire sur une nouvelle page.
 ### La Page Services :
 Cette page propose aux utilisateurs de consulter les services offerts par la communauté. Et, seul un utilisateur connecté pourra apporter sa contribution en proposant un service via un formulaire qui s'ouvre sur une autre page. Cet utilisateur a également la possibilité de supprimer un service.
@@ -63,7 +63,7 @@ Cette page propose aux utilisateurs de consulter les services offerts par la com
 ### Le Footer :
 * Un onglet "mentions légales" qui permet de les consulter.
 * Un onglet "nous contacter" qui comprend un formulaire ne permettant pas encore d'envoyer un mail à l'équipe...
-* Un onglet "la Roadbook Team" qui renvoit sur la présentation de l'équipe. 
+* Un onglet "la Roadbook Team" qui renvoie sur la présentation de l'équipe. 
 * Un onglet "plan du site", encore inactif... On verra quand l'application sera plus aboutie.
 
 
@@ -75,7 +75,7 @@ Olivier a réalisé les uses cases. Il s'est occupé de la partie connexion et i
 ### Romain :
 Romain est le Git Master du repo GitHub concernant la partie backend de l'application. Il a pris en charge toute la partie concernant les "Articles".<br/>
 ### Robert :
-Robert est le Git Master du repo GotHub concernant la partie Frontend de l'application. Il est l'auteur de la partie "Services".<br/>
+Robert est le Git Master du repo GitHub concernant la partie Frontend de l'application. Il est l'auteur de la partie "Services".<br/>
 Et nous avons travaillé tous ensemble sur le MCD et les tables.
 
 ## API utilisées 
@@ -90,7 +90,7 @@ Recherche en cours pour la création d'itinéraire.
 
 ###### Scénario 1 : Un utilisateur (inscrit ou non) veut découvrir des itinéraires de balades dans sa région.
 
-L'utilisateur lance l'application / se rends sur le site Roadbook-ride. Depuis le menu - barre de navigation - de la page d'accueil, il accède à la page des roadbooks.
+L'utilisateur lance l'application / se rend sur le site Roadbook-ride. Depuis le menu - barre de navigation - de la page d'accueil, il accède à la page des roadbooks.
 Les roadbooks les plus populaires (toutes régions confondues) apparaissent à l'écran, sous la forme de fiche récapitulatives (nom, kilomètrage, temps estimé, nombre d'étapes... aperçu trajet ?)
 
 Il clique sur la petite carte de France pour l'agrandir et sélectionner sa région.
@@ -109,7 +109,7 @@ L'utilisateur lance l'application / se rends sur le site Roadbook-ride. Au besoi
 Depuis le menu - barre de navigation - de la page d'accueil, il accède à la page des évènements.
 En dessous de la liste des évènement, il clique sur 'ajouter un évènement', qui ouvre un formulaire.
 
-Il remplit les champs obligatoires (nom, type d'évènement, description, date) et optionnels [ajouter ici comment se passe la sélection d'un RB] , et valide.
+Il remplit les champs obligatoires (nom, type d'évènement, description, date) et optionnels, et valide.
 
 Le formulaire se referme, une notification l'informe que son évènement a bien été enregistré, il est renvoyé sur la page des évènements.
 
