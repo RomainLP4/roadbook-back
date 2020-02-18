@@ -126,12 +126,83 @@ Concernant les Endpoints, nous avons respecté le principe du CRUD dans les cont
 <br/>
 Voici quelques exemples : <br/>
 ### Pour le "C" de CRUD : CREATE :
-![](Endpoint-event-create.PNG)
+```java
+	@PostMapping("/addEvenement")
+	public Evenement ajoutEvenement(@RequestBody Evenement evenement){
+		return evenementRepository.saveAndFlush(evenement);
+	}
+```
+
 ### Pour le "R" De CRUD : READ :
-![](Endpoint-articles-read.PNG)
+```java
+	@GetMapping("/articles")
+	public Collection<Article> findAll(){
+		return articleRepository.findAll();
+	}
+```
 ### Pour Le "U" De CRUD : UPDATE : 
-![](Endpoint-event-update.PNG)
+
+```java
+    @PutMapping("/updateEvenement")
+    	public ResponseEntity<Evenement> updateEvenement(@RequestBody Evenement evenement) {
+    
+    		Optional<Evenement> evenementEnBase = evenementRepository.findById(evenement.getId());
+    			
+    		if(evenementEnBase.isPresent()) {	
+    			// Si l'utilisateur ne renseigne pas certains champs, on leur donne par défaut leur valeur actuelle plutôt que de les écraser avec un null
+    
+    			if(evenement.getType().isEmpty()) {								
+    				evenement.setType(evenementEnBase.get().getType());		
+    			}
+    			if(evenement.getImageUrl().isEmpty()) {
+    				evenement.setImageUrl(evenementEnBase.get().getImageUrl());
+    			}
+    			if(evenement.getDescription().isEmpty()) {								
+    				evenement.setDescription(evenementEnBase.get().getDescription());		
+    			}																	
+    			if(evenement.getNom().isEmpty()) {
+    				evenement.setNom(evenementEnBase.get().getNom());
+    			}
+    			if(evenement.getDate() == null) {
+    				evenement.setDate(evenementEnBase.get().getDate());
+    			}
+    			if(evenement.getRegion() == null) {
+    				evenement.setRegion(evenementEnBase.get().getRegion());
+    			}
+    			if(evenement.getUtilisateur() == null) {
+    				evenement.setUtilisateur(evenementEnBase.get().getUtilisateur());
+    			}
+    			if(evenement.getRoadbook() == null) {
+    				evenement.setRoadbook(evenementEnBase.get().getRoadbook());
+    			}			
+    			return new ResponseEntity<>(evenementRepository.saveAndFlush(evenement), HttpStatus.CREATED); 
+    	
+    		} else {
+    			return new ResponseEntity<>(evenement, HttpStatus.NOT_FOUND);
+    		}
+    	}
+    	
+```
+
 ### Pour le "D" de CRUD : DELETE :
-![](Endpoint-services-delete.PNG)
+```java
+    @DeleteMapping("/delService/{id}")
+    public void delOne(@PathVariable int id) {
+        Optional<Service> optService = serviceRepository.findById(id);
+        if (optService.isPresent()) {
+            serviceRepository.deleteById(id);
+            System.out.println("Action supprimée");
+        } else {
+            System.out.println("Pas d'action à supprimer");
+        }
+    }
+```
+
 ### Pour effectuer une recherche (ici par "Tag") :
-![](Endpoint-articles-search.PNG)
+```java
+@GetMapping("/articlesByTag/{tag}")
+	public List<Article> findByTag(@PathVariable String tag) {
+		return articleRepository.findAllByTagContainingIgnoreCase(tag);
+	}
+```
+
