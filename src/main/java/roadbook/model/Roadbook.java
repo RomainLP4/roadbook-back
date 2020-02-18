@@ -3,14 +3,7 @@ package roadbook.model;
 import java.util.Collection;
 import java.util.List;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -21,6 +14,7 @@ public class Roadbook {
 	@Id
 	private int id;
 	private String nom;
+	@Column(length=1000)
 	private String description;
 	private int kilometrage;
 	private String difficulte; //enum

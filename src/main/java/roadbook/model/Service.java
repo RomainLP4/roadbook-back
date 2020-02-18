@@ -4,13 +4,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
+import javax.persistence.*;
 
 @Entity
 public class Service implements Serializable {
@@ -32,6 +26,7 @@ public class Service implements Serializable {
 	private int id;
 	private String nom;
 	private String categorie; //enum
+	@Column(length=1000)
 	private String description;
 	private int nbr_place;
 	private int note;

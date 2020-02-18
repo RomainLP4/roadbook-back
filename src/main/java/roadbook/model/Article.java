@@ -12,6 +12,7 @@ public class Article {
 	private String titre;
 	private String tag;
 	private String description;
+	@Column(length=1000)
 	private String texte;
 	private int nb_vue;
 	private String date_publication;
