@@ -3,14 +3,10 @@ package roadbook.controller;
 import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
-
-
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.beans.factory.annotation.Autowired;
-
-
 import roadbook.model.Article;
 import roadbook.model.Utilisateur;
 import roadbook.repository.ArticleRepository;
@@ -30,7 +26,7 @@ public class ArticleController {
 	}
 	@GetMapping("/articlesByTag/{tag}")
 	public List<Article> findByTag(@PathVariable String tag) {
-		return articleRepository.findAllByTag(tag);
+		return articleRepository.findAllByTagContainingIgnoreCase(tag);
 	}
 	
 	@PostMapping("/addArticle")

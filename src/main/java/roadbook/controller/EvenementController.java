@@ -61,7 +61,7 @@ public class EvenementController {
 	 */
 	@GetMapping("/evenementByNoms/{nom}")
 	public Collection<Evenement> findAllByNom(@PathVariable String nom) {
-		return evenementRepository.findAllByNom(nom);
+		return evenementRepository.findAllByNomContainingIgnoreCase(nom);
 	}
 	
 	/**

@@ -11,7 +11,7 @@ import roadbook.model.Service;
 public interface ServiceRepository extends JpaRepository<Service, Integer> {
 	public Optional<Service> findByCategorie(String categorie);
 
-	public Collection<Service> findAllByCategorie(String categorie);
+	public Collection<Service> findAllByCategorieContainingIgnoreCase(String categorie);
 
 	
 

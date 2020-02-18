@@ -33,7 +33,7 @@ public class ServiceController {
 
     @GetMapping("/servicesByCategorie/{categorie}")
     public Collection<Service> findByCategorie(@PathVariable String categorie) {
-        return serviceRepository.findAllByCategorie(categorie);
+        return serviceRepository.findAllByCategorieContainingIgnoreCase(categorie);
     }
 
 

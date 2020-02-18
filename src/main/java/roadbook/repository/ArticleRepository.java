@@ -10,7 +10,8 @@ import roadbook.model.Moto;
 
 public interface ArticleRepository extends JpaRepository<Article, Integer>{
 
-	List<Article> findAllByTag(String tag);
-
+	List<Article> findAllByTagContainingIgnoreCase(String tag);
+	List<Article> findAllByTagAndAndAuteurAndDescriptionAndTexteAndTitreContainingIgnoreCase(String tag,String titre,String auteur,String description,String texte);
+	//List<Article> findAllContainingIgnoreCase(String txt);
 	Article saveAndFlush(Article article);
 }
