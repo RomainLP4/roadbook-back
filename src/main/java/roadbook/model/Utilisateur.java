@@ -33,7 +33,7 @@ public class Utilisateur {
 	private String image_url;
 	
 	@JsonIgnore
-	@OneToMany (mappedBy="proprietaire", orphanRemoval=true)
+	@OneToMany (mappedBy="proprietaire")
 	private List<Moto> listeMotos;
 
 
