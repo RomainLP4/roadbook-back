@@ -4,23 +4,23 @@
 
 Nous avons le plaisir de vous présenter RoadBook Ride, une application communautaire 100% dédiée aux motards !<br/>
 RoadBook Ride vous permet de profiter de RoadBooks, d’articles, d’événements et autres services créés par la communauté.<br/>
-ROADBOOKS MOTO : <br/>
+### ROADBOOKS MOTO : (partie non réalisée pour le moment)
 Les motards partagent leurs roadbooks à travers toute la France et la communauté en profite. Et grâce à Robert (et aussi beaucoup grâce à Jean-Pierre et Thomas…), vous pourrez même vous géolocaliser !!!<br/>
-ARTICLES : <br/>
+### ARTICLES :
 Un fil d’actualités est mis à votre disposition pour échanger, publier et partager.<br/>
-SERVICES :<br/>
+### SERVICES :
 Les motards partagent leurs compétences, proposent des services… Cette page peut être votre alliée au quotidien. <br/>
-BALADES ET ÉVÉNEMENTS : <br/>
+### BALADES ET ÉVÉNEMENTS : 
 Tous les événements et balades sont ajoutés par les membres. Les utilisateurs situés à proximité du lieu de rendez-vous sont notifiés par email et notifications mobiles.<br/>
 
 ## Membres du projet :
-Balcon Sophie<br/>
+### Balcon Sophie
 ![](sophie.jpg)
-Roussely Robert<br/>
+### Roussely Robert
 ![](robert.jpg)
-Piveteau Olivier<br/>
+### Piveteau Olivier
 ![](olivier.jpg)
-Gallard Romain<br/>
+### Gallard Romain
 ![](romain.jpg)
 ## Doc de synthèse des réunions
 
@@ -38,33 +38,49 @@ https://wordpress-7068-0.cloudclusters.net/
 ## Description
 Une application web qui permet aux motards utilisateurs de partager leurs expériences.<br/>
 
-La page d'accueil se compose:
-- D'un fil d'actualités sur lequel les articles sont présentés.
-- Un lien de connexion utilisateurs.
-- Un lien vers les roadbooks : consultation et création.
-- Une barre de recherche
-- Un lien vers la page événements
-- Un lien vers la page services
+### La page d'accueil se compose :
+* D'une bannière avec le logo de l'application.
+* D'une NavBarre avec :<br/> 
+Un lien de connexion utilisateurs.<br/>
+Un lien vers les roadbooks : consultation et création.<br/>
+Un lien vers la page événements<br/>
+Un lien vers la page services<br/>
+Une barre de recherche<br/>
+* Une Card pour présenter l'application avec un lien vers la page "Articles".
+* La carte de France avec les départements cliquables (qui ne renvoie à rien pour le moment...).
+### La page Articles :
+Cette page parmet de consulter des articles. Et, seul un utilisateur connecté pourra apporter sa contribution en publiant un article via un formulaire qui s'ouvre sur une autre page. Cet utilisateur a également la possibilité de supprimer un article.
+### La Page RoadBook : 
+Cette page n'a pas encore été créée.
+### La Page Evénements : 
+Cette page offre la possibilité de consulter les événements proposés par la communauté. En cliquant sur un événement, les détails de celui-ci s'affiche dans la carte sous la liste. Un utilisateur a alors la possibilité de le modifier, le supprimer et de revenir à la liste principale.<br/>
+Il peut aussi ajouter un événement via un bouton qui ouvre un formulaire sur une nouvelle page.
+### La Page Services :
+Cette page propose aux utilisateurs de consulter les services offerts par la communauté. Et, seul un utilisateur connecté pourra apporter sa contribution en proposant un service via un formulaire qui s'ouvre sur une autre page. Cet utilisateur a également la possibilité de supprimer un service.
+### La Partie Connexion/Inscription :
+* L'onglet "connexion" de la navbarre permet a l'utilisateur déjà inscrit de se connecter, et au nouvel utilisateur de s'inscrire via un bouton qui ouvre un nouveau formulaire. 
+* L'onglet "profil" permet à l'utilisateur connecté de visualiser et mettre à jour sont profil.
+### Le Footer :
+* Un onglet "mentions légales" qui permet de les consulter.
+* Un onglet "nous contacter" qui comprend un formulaire ne permettant pas encore d'envoyer un mail à l'équipe...
+* Un onglet "la Roadbook Team" qui renvoit sur la présentation de l'équipe. 
+* Un onglet "plan du site", encore inactif... On verra quand l'application sera plus aboutie.
+
 
 ## Répartition des taches :
-Jusque la Sophie s'est occupée de la partie design du projet et de la maquette.<br/>
-Olivier des uses cases.<br/>
-Romain s'occupe du repo GitHub.<br/>
+### Sophie :
+Sophie s'est occupée de la partie design du projet et de la maquette. Elle a réalisé la partie "Evénements" de l'application.<br/>
+### Olivier :
+Olivier a réalisé les uses cases. Il s'est occupé de la partie connexion et inscription de l'application. Il a également créé la carte de France, avec les départements cliquables. <br/>
+### Romain :
+Romain est le Git Master du repo GitHub concernant la partie backend de l'application. Il a pris en charge toute la partie concernant les "Articles".<br/>
+### Robert :
+Robert est le Git Master du repo GotHub concernant la partie Frontend de l'application. Il est l'auteur de la partie "Services".<br/>
 Et nous avons travaillé tous ensemble sur le MCD et les tables.
 
 ## API utilisées 
 Nous allons utiliser OpenStreetMap comme API pour la carte.
 Recherche en cours pour la création d'itinéraire.
-
-## Description technique
-(à venir)
-
-## Notice
-(à venir)
-
-## Endpoints
-
-(à venir)<br/>
 
 ## Use Cases
 
@@ -104,3 +120,18 @@ Il peut immédiatement vérifier que son évènement est bien listé en effectua
 ![](https://i.imgur.com/IjQ2IK7.png)
 
 
+
+## Endpoints
+Concernant les Endpoints, nous avons respecté le principe du CRUD dans les controller principaux. 
+<br/>
+Voici quelques exemples : <br/>
+### Pour le "C" de CRUD : CREATE :
+![](Endpoint-event-create.PNG)
+### Pour le "R" De CRUD : READ :
+![](Endpoint-articles-read.PNG)
+### Pour Le "U" De CRUD : UPDATE : 
+![](Endpoint-event-update.PNG)
+### Pour le "D" de CRUD : DELETE :
+![](Endpoint-services-delete.PNG)
+### Pour effectuer une recherche (ici par "Tag") :
+![](Endpoint-articles-search.PNG)
