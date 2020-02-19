@@ -121,22 +121,69 @@ Concernant les Endpoints, nous avons respecté le principe du CRUD dans les cont
 <br/>
 Voici quelques exemples : <br/>
 ### Pour le "C" de CRUD : CREATE :
+Côté Back :
 ```java
 	@PostMapping("/addEvenement")
 	public Evenement ajoutEvenement(@RequestBody Evenement evenement){
 		return evenementRepository.saveAndFlush(evenement);
 	}
 ```
+Côté Front :
+
+```ts
+{...}
+import {HttpClient} from '@angular/common/http';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class EvenementService {
+  private addEventUrl = 'http://localhost:8080/addEvenement';
+{...}
+  
+  constructor(
+    private http: HttpClient) {
+  }
+
+//Appel a l'api pour ajouter un nouvel evenement
+  createEvenement(evenement: Evenement): Observable<any> {
+    return this.http.post(`${this.addEventUrl}`, evenement);
+  }
+
+```
 
 ### Pour le "R" De CRUD : READ :
+Côté Back :
 ```java
 	@GetMapping("/articles")
 	public Collection<Article> findAll(){
 		return articleRepository.findAll();
 	}
 ```
-### Pour Le "U" De CRUD : UPDATE : 
+Côté Front : 
+```ts
+{...}
+import {HttpClient} from '@angular/common/http';
 
+@Injectable({
+  providedIn: 'root'
+})
+
+export class ArticleService {
+  private ListUrl = 'http://localhost:8080/articles'
+{...}
+
+  constructor(
+    private http: HttpClient) {
+  }
+
+//Appel a l'api pour recuperer la liste des articles present en base
+  getArticlesList(): Observable<Article[]> {
+    return this.http.get<Article[]>(this.ListUrl);
+  }
+```
+### Pour Le "U" De CRUD : UPDATE : 
+Côté Back :
 ```java
     @PutMapping("/updateEvenement")
     	public ResponseEntity<Evenement> updateEvenement(@RequestBody Evenement evenement) {
@@ -178,8 +225,33 @@ Voici quelques exemples : <br/>
     	}
     	
 ```
+Côté Front :
+```ts
+{...}
+import {HttpClient} from '@angular/common/http';
+
+@Injectable({
+  providedIn: 'root'
+})
+
+export class EvenementService {
+  private updateEvent = 'http://localhost:8080/updateEvenement';
+{...}
+
+  constructor(
+    private http: HttpClient) {
+  }
+
+//Appel a l'api pour mettre a jour un evenement
+  onUpdateEvenement(evenement: Evenement): Observable<any> {
+    return this.http.put(`${this.updateEvent}`, evenement);
+  }
+}
+
+```
 
 ### Pour le "D" de CRUD : DELETE :
+Côté Back :
 ```java
     @DeleteMapping("/delService/{id}")
     public void delOne(@PathVariable int id) {
@@ -192,12 +264,60 @@ Voici quelques exemples : <br/>
         }
     }
 ```
+Côté Front :
+```ts
+{...}
+import {HttpClient} from '@angular/common/http';
+
+@Injectable({
+  providedIn: 'root'
+})
+
+export class RbServiceService {
+{...}
+  private delService = 'http://localhost:8080/delService';
+
+
+  constructor(
+    private http: HttpClient) {
+  }
+
+  //Appel a l'api pour supprimer un service
+  deleteService(id: number): Observable<any> {
+    return this.http.delete(`${this.delService}/${id}`);
+  }
+}
+```
 
 ### Pour effectuer une recherche (ici par "Tag") :
+Côté Back :
 ```java
 @GetMapping("/articlesByTag/{tag}")
 	public List<Article> findByTag(@PathVariable String tag) {
 		return articleRepository.findAllByTagContainingIgnoreCase(tag);
 	}
 ```
+Côté Front : 
+```ts
+{...}
+import {HttpClient} from "@angular/common/http";
 
+@Injectable({
+  providedIn: 'root'
+})
+
+export class SearchService {
+{...}
+  private ArticleUrl = 'http://localhost:8080/articlesByTag';
+  articles: Article[];
+
+  constructor(
+    private http: HttpClient
+  ) {
+  }
+  
+  // Appel a l'api retournant les articles contenant le tag saisie
+  getArticleTag(tag: string): Observable<Article[]> {
+    return this.http.get<Article[]>(`${this.ArticleUrl}/${tag}`);
+}
+```
