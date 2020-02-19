@@ -1,6 +1,8 @@
 INSERT INTO roadbookride.utilisateur (id, pseudo, email, password, nom, prenom, telephone, niveau, ville, role,image_url) VALUES (1, 'Speufy', 'speufy31@gmail.com', 'Toulouse*31', 'Gallard', 'Romain', '0652755749', 'Intermédiaire', 'Toulouse', 'Admin','assets/Images/profilepic1.jpg');
 INSERT INTO roadbookride.utilisateur (id, pseudo, email, password, nom, prenom, telephone, niveau, ville, role,image_url) VALUES (2, 'RobTheBear', 'robert@gmail.com', 'Robear', 'Roussely', 'Robert', '0606056006', 'Expert', 'Drap', 'Moderateur','assets/Images/profilepic2.png');
 INSERT INTO roadbookride.utilisateur (id, pseudo, email, password, nom, prenom, telephone, niveau, ville, role,image_url) VALUES (3, 'Sof', 'sophie.balcon@gmail.com', 'fzr', 'Balcon', 'Sophie', '0620458598', 'Confirmé', 'Pontchâteau', 'User','assets/Images/profilepic3.jpg');
+INSERT INTO roadbookride.utilisateur (id, pseudo, email, password, nom, prenom, telephone, niveau, ville, role, image_url) VALUES (4, 'Phil', 'adm', 'pw', 'Jarive', 'Phil', '0102030405', 'Intermédiaire', 'Paris', 'Admin', 'assets/Images/profilepic4.jpg');
+
 
 INSERT INTO roadbookride.moto (id, categorie, marque, modele, annee, proprietaire) VALUES (1, 'Roadster', 'KTM', '790 Duke', 2018, 1);
 INSERT INTO roadbookride.moto (id, categorie, marque, modele, annee, proprietaire) VALUES (2, 'Trail', 'KTM', '1290 Super Adventure', 2015, 2);
