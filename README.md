@@ -2,38 +2,38 @@
 
 ![](banniere.jpg)
 
-Nous avons le plaisir de vous présenter RoadBook Ride, une application communautaire 100% dédiée aux motards !<br/>
-RoadBook Ride vous permet de profiter de RoadBooks, d’articles, d’événements et autres services créés par la communauté.<br/>
-### ROADBOOKS MOTO : (partie non réalisée pour le moment)
+
+## Pourquoi RoadBook Ride ?
+75 % des membres du projet sont motards. Le thème de la moto s'est donc tout naturellement imposé. Et, nous avons réfléchi à la création d'une application qui pourrait nous être utile dans notre quotidien de motards. <br/>
+Nous avons voulu concevoir une application qui regroupe 4 grands thèmes :<br/> 
+### DES ROADBOOKS MOTO : (partie en chantier)
 Les motards partagent leurs roadbooks à travers toute la France et la communauté en profite. Et grâce à Robert (et aussi beaucoup grâce à Jean-Pierre et Thomas…), vous pourrez même vous géolocaliser !!!<br/>
-### ARTICLES :
+### DES ARTICLES :
 Un fil d’actualités est mis à votre disposition pour échanger, publier et partager.<br/>
-### SERVICES :
+### DES SERVICES :
 Les motards partagent leurs compétences, proposent des services… Cette page peut être votre alliée au quotidien. <br/>
-### BALADES ET ÉVÉNEMENTS : 
+### DES BALADES ET ÉVÉNEMENTS : 
 Tous les événements et balades sont ajoutés par les membres. Les utilisateurs situés à proximité du lieu de rendez-vous sont notifiés par email et notifications mobiles.<br/>
+<br/>
+Nous avons donc le plaisir de vous présenter RoadBook Ride, une application communautaire 100% dédiée aux motards !<br/>
+RoadBook Ride vous permetttra de profiter de RoadBooks, d’articles, d’événements et autres services créés par une communauté de motards.<br/>
 
 ## Membres du projet :
-### Balcon Sophie
-![](sophie.jpg)
-### Roussely Robert
-![](robert.jpg)
-### Piveteau Olivier
-![](olivier.jpg)
-### Gallard Romain
-![](romain.jpg)
-## Doc de synthèse des réunions
+Nous sommes fières de vous présenter la RoadBook Team
 
-https://docs.google.com/document/d/1_GBlj-ltqSKCLcIOpHSGGh2gK36yKEEFBCuBlj5qUNU/edit
+![](LaRoadbookTeam.jpg)
 
-## Trello
-https://trello.com/b/WpmMKhwL/commumoto
+## Répartition des taches :
+Nous avons travaillé tous ensemble sur le MCD et les tables. 
+### Sophie :
+Sophie s'est occupée de la partie design du projet et de la maquette. Elle a réalisé la partie "Evénements" de l'application.<br/>
+### Olivier :
+Olivier a réalisé les uses cases. Il s'est occupé de la partie connexion et inscription de l'application. Il a également créé la carte de France, avec les départements cliquables. <br/>
+### Romain :
+Romain est le Git Master du repo GitHub concernant la partie backend de l'application. Il a pris en charge toute la partie concernant les "Articles".<br/>
+### Robert :
+Robert est le Git Master du repo GotHub concernant la partie Frontend de l'application. Il est l'auteur de la partie "Services". Et, c'est grâce à lui qu'on peut se géolocaliser.<br/>
 
-## Maquette
-https://marvelapp.com/80i1ag5
-
-## Projet Wordpress
-https://wordpress-7068-0.cloudclusters.net/
 
 ## Description
 Une application web qui permet aux motards utilisateurs de partager leurs expériences.<br/>
@@ -51,9 +51,9 @@ Une barre de recherche<br/>
 ### La page Articles :
 Cette page parmet de consulter des articles. Et, seul un utilisateur connecté pourra apporter sa contribution en publiant un article via un formulaire qui s'ouvre sur une autre page. Cet utilisateur a également la possibilité de supprimer un article.
 ### La Page RoadBook : 
-Cette page n'a pas encore été créée.
+Cette page est en cours de création. Mais, contient déjà une carte permettant de se géolocaliser.
 ### La Page Evénements : 
-Cette page offre la possibilité de consulter les événements proposés par la communauté. En cliquant sur un événement, les détails de celui-ci s'affichent dans la carte sous la liste. Un utilisateur a alors la possibilité de le modifier, le supprimer et de revenir à la liste principale.<br/>
+Cette page offre la possibilité de consulter les événements proposés par la communauté. En cliquant sur un événement, les détails de celui-ci s'affiche dans la carte sous la liste. Un utilisateur a alors la possibilité de le modifier, le supprimer et de revenir à la liste principale.<br/>
 Il peut aussi ajouter un événement via un bouton qui ouvre un formulaire sur une nouvelle page.
 ### La Page Services :
 Cette page propose aux utilisateurs de consulter les services offerts par la communauté. Et, seul un utilisateur connecté pourra apporter sa contribution en proposant un service via un formulaire qui s'ouvre sur une autre page. Cet utilisateur a également la possibilité de supprimer un service.
@@ -63,24 +63,15 @@ Cette page propose aux utilisateurs de consulter les services offerts par la com
 ### Le Footer :
 * Un onglet "mentions légales" qui permet de les consulter.
 * Un onglet "nous contacter" qui comprend un formulaire ne permettant pas encore d'envoyer un mail à l'équipe...
-* Un onglet "la Roadbook Team" qui renvoie sur la présentation de l'équipe. 
+* Un onglet "la Roadbook Team" qui renvoit sur la présentation de l'équipe. 
 * Un onglet "plan du site", encore inactif... On verra quand l'application sera plus aboutie.
 
 
-## Répartition des taches :
-### Sophie :
-Sophie s'est occupée de la partie design du projet et de la maquette. Elle a réalisé la partie "Evénements" de l'application.<br/>
-### Olivier :
-Olivier a réalisé les uses cases. Il s'est occupé de la partie connexion et inscription de l'application. Il a également créé la carte de France, avec les départements cliquables. <br/>
-### Romain :
-Romain est le Git Master du repo GitHub concernant la partie backend de l'application. Il a pris en charge toute la partie concernant les "Articles".<br/>
-### Robert :
-Robert est le Git Master du repo GitHub concernant la partie Frontend de l'application. Il est l'auteur de la partie "Services".<br/>
-Et nous avons travaillé tous ensemble sur le MCD et les tables.
+## Diagramme de l'application
+![](DiagrammeFilRouge.jpg)
 
-## API utilisées 
-Nous allons utiliser OpenStreetMap comme API pour la carte.
-Recherche en cours pour la création d'itinéraire.
+## API utilisée 
+Nous utilisons OpenStreetMap comme API pour la carte.
 
 ## Use Cases
 
@@ -90,7 +81,7 @@ Recherche en cours pour la création d'itinéraire.
 
 ###### Scénario 1 : Un utilisateur (inscrit ou non) veut découvrir des itinéraires de balades dans sa région.
 
-L'utilisateur lance l'application / se rend sur le site Roadbook-ride. Depuis le menu - barre de navigation - de la page d'accueil, il accède à la page des roadbooks.
+L'utilisateur lance l'application / se rends sur le site Roadbook-ride. Depuis le menu - barre de navigation - de la page d'accueil, il accède à la page des roadbooks.
 Les roadbooks les plus populaires (toutes régions confondues) apparaissent à l'écran, sous la forme de fiche récapitulatives (nom, kilomètrage, temps estimé, nombre d'étapes... aperçu trajet ?)
 
 Il clique sur la petite carte de France pour l'agrandir et sélectionner sa région.
@@ -109,7 +100,7 @@ L'utilisateur lance l'application / se rends sur le site Roadbook-ride. Au besoi
 Depuis le menu - barre de navigation - de la page d'accueil, il accède à la page des évènements.
 En dessous de la liste des évènement, il clique sur 'ajouter un évènement', qui ouvre un formulaire.
 
-Il remplit les champs obligatoires (nom, type d'évènement, description, date) et optionnels, et valide.
+Il remplit les champs obligatoires (nom, type d'évènement, description, date) et optionnels [ajouter ici comment se passe la sélection d'un RB] , et valide.
 
 Le formulaire se referme, une notification l'informe que son évènement a bien été enregistré, il est renvoyé sur la page des évènements.
 
@@ -119,19 +110,217 @@ Il peut immédiatement vérifier que son évènement est bien listé en effectua
 
 ![](https://i.imgur.com/IjQ2IK7.png)
 
-
-
 ## Endpoints
 Concernant les Endpoints, nous avons respecté le principe du CRUD dans les controller principaux. 
 <br/>
 Voici quelques exemples : <br/>
 ### Pour le "C" de CRUD : CREATE :
-![](Endpoint-event-create.PNG)
+Côté Back :
+```java
+	@PostMapping("/addEvenement")
+	public Evenement ajoutEvenement(@RequestBody Evenement evenement){
+		return evenementRepository.saveAndFlush(evenement);
+	}
+```
+Côté Front :
+
+```ts
+{...}
+import {HttpClient} from '@angular/common/http';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class EvenementService {
+  private addEventUrl = 'http://localhost:8080/addEvenement';
+{...}
+  
+  constructor(
+    private http: HttpClient) {
+  }
+
+//Appel a l'api pour ajouter un nouvel evenement
+  createEvenement(evenement: Evenement): Observable<any> {
+    return this.http.post(`${this.addEventUrl}`, evenement);
+  }
+
+```
+
 ### Pour le "R" De CRUD : READ :
-![](Endpoint-articles-read.PNG)
+Côté Back :
+```java
+	@GetMapping("/articles")
+	public Collection<Article> findAll(){
+		return articleRepository.findAll();
+	}
+```
+Côté Front : 
+```ts
+{...}
+import {HttpClient} from '@angular/common/http';
+
+@Injectable({
+  providedIn: 'root'
+})
+
+export class ArticleService {
+  private ListUrl = 'http://localhost:8080/articles'
+{...}
+
+  constructor(
+    private http: HttpClient) {
+  }
+
+//Appel a l'api pour recuperer la liste des articles present en base
+  getArticlesList(): Observable<Article[]> {
+    return this.http.get<Article[]>(this.ListUrl);
+  }
+```
 ### Pour Le "U" De CRUD : UPDATE : 
-![](Endpoint-event-update.PNG)
+Côté Back :
+```java
+    @PutMapping("/updateEvenement")
+    	public ResponseEntity<Evenement> updateEvenement(@RequestBody Evenement evenement) {
+    
+    		Optional<Evenement> evenementEnBase = evenementRepository.findById(evenement.getId());
+    			
+    		if(evenementEnBase.isPresent()) {	
+    			// Si l'utilisateur ne renseigne pas certains champs, on leur donne par défaut leur valeur actuelle plutôt que de les écraser avec un null
+    
+    			if(evenement.getType().isEmpty()) {								
+    				evenement.setType(evenementEnBase.get().getType());		
+    			}
+    			if(evenement.getImageUrl().isEmpty()) {
+    				evenement.setImageUrl(evenementEnBase.get().getImageUrl());
+    			}
+    			if(evenement.getDescription().isEmpty()) {								
+    				evenement.setDescription(evenementEnBase.get().getDescription());		
+    			}																	
+    			if(evenement.getNom().isEmpty()) {
+    				evenement.setNom(evenementEnBase.get().getNom());
+    			}
+    			if(evenement.getDate() == null) {
+    				evenement.setDate(evenementEnBase.get().getDate());
+    			}
+    			if(evenement.getRegion() == null) {
+    				evenement.setRegion(evenementEnBase.get().getRegion());
+    			}
+    			if(evenement.getUtilisateur() == null) {
+    				evenement.setUtilisateur(evenementEnBase.get().getUtilisateur());
+    			}
+    			if(evenement.getRoadbook() == null) {
+    				evenement.setRoadbook(evenementEnBase.get().getRoadbook());
+    			}			
+    			return new ResponseEntity<>(evenementRepository.saveAndFlush(evenement), HttpStatus.CREATED); 
+    	
+    		} else {
+    			return new ResponseEntity<>(evenement, HttpStatus.NOT_FOUND);
+    		}
+    	}
+    	
+```
+Côté Front :
+```ts
+{...}
+import {HttpClient} from '@angular/common/http';
+
+@Injectable({
+  providedIn: 'root'
+})
+
+export class EvenementService {
+  private updateEvent = 'http://localhost:8080/updateEvenement';
+{...}
+
+  constructor(
+    private http: HttpClient) {
+  }
+
+//Appel a l'api pour mettre a jour un evenement
+  onUpdateEvenement(evenement: Evenement): Observable<any> {
+    return this.http.put(`${this.updateEvent}`, evenement);
+  }
+}
+
+```
+
 ### Pour le "D" de CRUD : DELETE :
-![](Endpoint-services-delete.PNG)
+Côté Back :
+```java
+    @DeleteMapping("/delService/{id}")
+    public void delOne(@PathVariable int id) {
+        Optional<Service> optService = serviceRepository.findById(id);
+        if (optService.isPresent()) {
+            serviceRepository.deleteById(id);
+            System.out.println("Action supprimée");
+        } else {
+            System.out.println("Pas d'action à supprimer");
+        }
+    }
+```
+Côté Front :
+```ts
+{...}
+import {HttpClient} from '@angular/common/http';
+
+@Injectable({
+  providedIn: 'root'
+})
+
+export class RbServiceService {
+{...}
+  private delService = 'http://localhost:8080/delService';
+
+
+  constructor(
+    private http: HttpClient) {
+  }
+
+  //Appel a l'api pour supprimer un service
+  deleteService(id: number): Observable<any> {
+    return this.http.delete(`${this.delService}/${id}`);
+  }
+}
+```
+
 ### Pour effectuer une recherche (ici par "Tag") :
-![](Endpoint-articles-search.PNG)
+Côté Back :
+```java
+@GetMapping("/articlesByTag/{tag}")
+	public List<Article> findByTag(@PathVariable String tag) {
+		return articleRepository.findAllByTagContainingIgnoreCase(tag);
+	}
+```
+Côté Front : 
+```ts
+{...}
+import {HttpClient} from "@angular/common/http";
+
+@Injectable({
+  providedIn: 'root'
+})
+
+export class SearchService {
+{...}
+  private ArticleUrl = 'http://localhost:8080/articlesByTag';
+  articles: Article[];
+
+  constructor(
+    private http: HttpClient
+  ) {
+  }
+  
+  // Appel a l'api retournant les articles contenant le tag saisie
+  getArticleTag(tag: string): Observable<Article[]> {
+    return this.http.get<Article[]>(`${this.ArticleUrl}/${tag}`);
+}
+```
+## Compte-rendus Réunions
+https://docs.google.com/document/d/1_GBlj-ltqSKCLcIOpHSGGh2gK36yKEEFBCuBlj5qUNU/edit
+
+## Trello
+https://trello.com/b/WpmMKhwL/commumoto
+
+## Maquette
+https://marvelapp.com/80i1ag5
+
