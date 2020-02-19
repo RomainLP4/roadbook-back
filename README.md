@@ -2,32 +2,38 @@
 
 ![](banniere.jpg)
 
-Nous avons le plaisir de vous présenter RoadBook Ride, une application communautaire 100% dédiée aux motards !<br/>
-RoadBook Ride vous permet de profiter de RoadBooks, d’articles, d’événements et autres services créés par la communauté.<br/>
-### ROADBOOKS MOTO : (partie en chantier)
+
+## Pourquoi RoadBook Ride ?
+75 % des membres du projet sont motards. Le thème de la moto s'est donc tout naturellement imposé. Et, nous avons réfléchi à la création d'une application qui pourrait nous être utile dans notre quotidien de motards. <br/>
+Nous avons voulu concevoir une application qui regroupe 4 grands thèmes :<br/> 
+### DES ROADBOOKS MOTO : (partie en chantier)
 Les motards partagent leurs roadbooks à travers toute la France et la communauté en profite. Et grâce à Robert (et aussi beaucoup grâce à Jean-Pierre et Thomas…), vous pourrez même vous géolocaliser !!!<br/>
-### ARTICLES :
+### DES ARTICLES :
 Un fil d’actualités est mis à votre disposition pour échanger, publier et partager.<br/>
-### SERVICES :
+### DES SERVICES :
 Les motards partagent leurs compétences, proposent des services… Cette page peut être votre alliée au quotidien. <br/>
-### BALADES ET ÉVÉNEMENTS : 
+### DES BALADES ET ÉVÉNEMENTS : 
 Tous les événements et balades sont ajoutés par les membres. Les utilisateurs situés à proximité du lieu de rendez-vous sont notifiés par email et notifications mobiles.<br/>
+<br/>
+Nous avons donc le plaisir de vous présenter RoadBook Ride, une application communautaire 100% dédiée aux motards !<br/>
+RoadBook Ride vous permetttra de profiter de RoadBooks, d’articles, d’événements et autres services créés par une communauté de motards.<br/>
 
 ## Membres du projet :
 Nous sommes fières de vous présenter la RoadBook Team
 
 ![](LaRoadbookTeam.jpg)
 
-https://docs.google.com/document/d/1_GBlj-ltqSKCLcIOpHSGGh2gK36yKEEFBCuBlj5qUNU/edit
+## Répartition des taches :
+Nous avons travaillé tous ensemble sur le MCD et les tables. 
+### Sophie :
+Sophie s'est occupée de la partie design du projet et de la maquette. Elle a réalisé la partie "Evénements" de l'application.<br/>
+### Olivier :
+Olivier a réalisé les uses cases. Il s'est occupé de la partie connexion et inscription de l'application. Il a également créé la carte de France, avec les départements cliquables. <br/>
+### Romain :
+Romain est le Git Master du repo GitHub concernant la partie backend de l'application. Il a pris en charge toute la partie concernant les "Articles".<br/>
+### Robert :
+Robert est le Git Master du repo GotHub concernant la partie Frontend de l'application. Il est l'auteur de la partie "Services". Et, c'est grâce à lui qu'on peut se géolocaliser.<br/>
 
-## Trello
-https://trello.com/b/WpmMKhwL/commumoto
-
-## Maquette
-https://marvelapp.com/80i1ag5
-
-## Diagramme de l'application
-![](DiagrammeFilRouge.jpg)
 
 ## Description
 Une application web qui permet aux motards utilisateurs de partager leurs expériences.<br/>
@@ -45,7 +51,7 @@ Une barre de recherche<br/>
 ### La page Articles :
 Cette page parmet de consulter des articles. Et, seul un utilisateur connecté pourra apporter sa contribution en publiant un article via un formulaire qui s'ouvre sur une autre page. Cet utilisateur a également la possibilité de supprimer un article.
 ### La Page RoadBook : 
-Cette page est en cours de création.
+Cette page est en cours de création. Mais, contient déjà une carte permettant de se géolocaliser.
 ### La Page Evénements : 
 Cette page offre la possibilité de consulter les événements proposés par la communauté. En cliquant sur un événement, les détails de celui-ci s'affiche dans la carte sous la liste. Un utilisateur a alors la possibilité de le modifier, le supprimer et de revenir à la liste principale.<br/>
 Il peut aussi ajouter un événement via un bouton qui ouvre un formulaire sur une nouvelle page.
@@ -61,21 +67,11 @@ Cette page propose aux utilisateurs de consulter les services offerts par la com
 * Un onglet "plan du site", encore inactif... On verra quand l'application sera plus aboutie.
 
 
-## Répartition des taches :
-Nous avons travaillé tous ensemble sur le MCD et les tables. 
-### Sophie :
-Sophie s'est occupée de la partie design du projet et de la maquette. Elle a réalisé la partie "Evénements" de l'application.<br/>
-### Olivier :
-Olivier a réalisé les uses cases. Il s'est occupé de la partie connexion et inscription de l'application. Il a également créé la carte de France, avec les départements cliquables. <br/>
-### Romain :
-Romain est le Git Master du repo GitHub concernant la partie backend de l'application. Il a pris en charge toute la partie concernant les "Articles".<br/>
-### Robert :
-Robert est le Git Master du repo GotHub concernant la partie Frontend de l'application. Il est l'auteur de la partie "Services". Et, il nous géolocalise.<br/>
-
+## Diagramme de l'application
+![](DiagrammeFilRouge.jpg)
 
 ## API utilisée 
 Nous utilisons OpenStreetMap comme API pour la carte.
-
 
 ## Use Cases
 
@@ -113,8 +109,6 @@ Il peut immédiatement vérifier que son évènement est bien listé en effectua
 ## MCD
 
 ![](https://i.imgur.com/IjQ2IK7.png)
-
-
 
 ## Endpoints
 Concernant les Endpoints, nous avons respecté le principe du CRUD dans les controller principaux. 
@@ -321,3 +315,12 @@ export class SearchService {
     return this.http.get<Article[]>(`${this.ArticleUrl}/${tag}`);
 }
 ```
+## Compte-rendus Réunions
+https://docs.google.com/document/d/1_GBlj-ltqSKCLcIOpHSGGh2gK36yKEEFBCuBlj5qUNU/edit
+
+## Trello
+https://trello.com/b/WpmMKhwL/commumoto
+
+## Maquette
+https://marvelapp.com/80i1ag5
+
