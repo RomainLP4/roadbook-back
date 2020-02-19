@@ -4,7 +4,7 @@
 
 Nous avons le plaisir de vous présenter RoadBook Ride, une application communautaire 100% dédiée aux motards !<br/>
 RoadBook Ride vous permet de profiter de RoadBooks, d’articles, d’événements et autres services créés par la communauté.<br/>
-### ROADBOOKS MOTO : (partie non réalisée pour le moment)
+### ROADBOOKS MOTO : (partie en chantier)
 Les motards partagent leurs roadbooks à travers toute la France et la communauté en profite. Et grâce à Robert (et aussi beaucoup grâce à Jean-Pierre et Thomas…), vous pourrez même vous géolocaliser !!!<br/>
 ### ARTICLES :
 Un fil d’actualités est mis à votre disposition pour échanger, publier et partager.<br/>
@@ -14,15 +14,9 @@ Les motards partagent leurs compétences, proposent des services… Cette page p
 Tous les événements et balades sont ajoutés par les membres. Les utilisateurs situés à proximité du lieu de rendez-vous sont notifiés par email et notifications mobiles.<br/>
 
 ## Membres du projet :
-### Balcon Sophie
-![](sophie.jpg)
-### Roussely Robert
-![](robert.jpg)
-### Piveteau Olivier
-![](olivier.jpg)
-### Gallard Romain
-![](romain.jpg)
-## Doc de synthèse des réunions
+Nous sommes fières de vous présenter la RoadBook Team
+
+![](LaRoadBookTeam.jpg)
 
 https://docs.google.com/document/d/1_GBlj-ltqSKCLcIOpHSGGh2gK36yKEEFBCuBlj5qUNU/edit
 
@@ -32,8 +26,8 @@ https://trello.com/b/WpmMKhwL/commumoto
 ## Maquette
 https://marvelapp.com/80i1ag5
 
-## Projet Wordpress
-https://wordpress-7068-0.cloudclusters.net/
+## Diagramme de l'application
+![](DiagrammeFilRouge.jpg)
 
 ## Description
 Une application web qui permet aux motards utilisateurs de partager leurs expériences.<br/>
@@ -51,7 +45,7 @@ Une barre de recherche<br/>
 ### La page Articles :
 Cette page parmet de consulter des articles. Et, seul un utilisateur connecté pourra apporter sa contribution en publiant un article via un formulaire qui s'ouvre sur une autre page. Cet utilisateur a également la possibilité de supprimer un article.
 ### La Page RoadBook : 
-Cette page n'a pas encore été créée.
+Cette page est en cours de création.
 ### La Page Evénements : 
 Cette page offre la possibilité de consulter les événements proposés par la communauté. En cliquant sur un événement, les détails de celui-ci s'affiche dans la carte sous la liste. Un utilisateur a alors la possibilité de le modifier, le supprimer et de revenir à la liste principale.<br/>
 Il peut aussi ajouter un événement via un bouton qui ouvre un formulaire sur une nouvelle page.
@@ -68,6 +62,7 @@ Cette page propose aux utilisateurs de consulter les services offerts par la com
 
 
 ## Répartition des taches :
+Nous avons travaillé tous ensemble sur le MCD et les tables. 
 ### Sophie :
 Sophie s'est occupée de la partie design du projet et de la maquette. Elle a réalisé la partie "Evénements" de l'application.<br/>
 ### Olivier :
@@ -75,12 +70,12 @@ Olivier a réalisé les uses cases. Il s'est occupé de la partie connexion et i
 ### Romain :
 Romain est le Git Master du repo GitHub concernant la partie backend de l'application. Il a pris en charge toute la partie concernant les "Articles".<br/>
 ### Robert :
-Robert est le Git Master du repo GotHub concernant la partie Frontend de l'application. Il est l'auteur de la partie "Services".<br/>
-Et nous avons travaillé tous ensemble sur le MCD et les tables.
+Robert est le Git Master du repo GotHub concernant la partie Frontend de l'application. Il est l'auteur de la partie "Services". Et, il nous géolocalise.<br/>
 
-## API utilisées 
-Nous allons utiliser OpenStreetMap comme API pour la carte.
-Recherche en cours pour la création d'itinéraire.
+
+## API utilisée 
+Nous utilisons OpenStreetMap comme API pour la carte.
+
 
 ## Use Cases
 
