@@ -16,7 +16,7 @@ Tous les événements et balades sont ajoutés par les membres. Les utilisateurs
 ## Membres du projet :
 Nous sommes fières de vous présenter la RoadBook Team
 
-![](LaRoadBookTeam.jpg)
+![](LaRoadbookTeam.jpg)
 
 https://docs.google.com/document/d/1_GBlj-ltqSKCLcIOpHSGGh2gK36yKEEFBCuBlj5qUNU/edit
 
